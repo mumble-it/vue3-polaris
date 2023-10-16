@@ -1,0 +1,123 @@
+.p-text {
+
+  &--body-sm {
+    @apply text-sm;
+  }
+
+  &--body-md {
+    @apply text-base;
+  }
+
+  &--body-lg {
+    @apply text-lg;
+  }
+
+  &--heading-sm {
+    @apply text-base;
+    font-weight: 650;
+    line-height: 20px;
+  }
+
+  &--heading-md {
+    @apply text-lg;
+    font-weight: 650;
+    line-height: 20px;
+  }
+
+  &--heading-lg {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 24px;
+  }
+
+  &--heading-xl {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 24px;
+  }
+
+  &--heading-2xl {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 32px;
+  }
+
+  &--heading-3xl {
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 40px;
+  }
+
+  &--break {
+    overflow-wrap: anywhere;
+    word-break: normal;
+  }
+
+  &--start {
+    @apply text-left;
+  }
+
+  &--center {
+    @apply text-center;
+  }
+
+  &--end {
+    @apply text-right;
+  }
+
+  &--justify {
+    @apply text-justify;
+  }
+
+  &--regular {
+    @apply font-normal;
+  }
+
+  &--medium {
+    @apply font-medium;
+  }
+
+  &--semibold {
+    @apply font-semibold;
+  }
+
+  &--bold {
+    @apply font-bold;
+  }
+
+  &--success {
+    @apply text-success;
+  }
+
+  &--critical {
+    @apply text-critical;
+  }
+
+  &--caution {
+    @apply text-caution;
+  }
+
+  &--subdued {
+    @apply text-subdued;
+  }
+
+  &--text-inverse {
+    @apply text-text-inverse;
+  }
+
+  &--visually-hidden {
+    @apply top-0 absolute m-0 p-0 overflow-hidden whitespace-nowrap #{!important};
+    width: 0.0625rem !important;
+    height: 0.0625rem !important;
+    clip-path: inset(50%) !important;
+    border: 0 !important;
+  }
+
+  &--line-through {
+    @apply line-through;
+  }
+
+  &--truncate {
+    @apply overflow-hidden whitespace-nowrap text-ellipsis;
+  }
+}

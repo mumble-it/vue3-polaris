@@ -1,0 +1,73 @@
+{
+  "name": "vue3-polaris-test",
+  "version": "0.0.8",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build:css": "sass src/sass/main.scss dist/css/main.css && npx postcss dist/css/main.css -o dist/css/main.css",
+    "build": "vite build && vue-tsc --emitDeclarationOnly && mv dist/src dist/types && npm run build:css",
+    "preserve": "vite build",
+    "serve": "vite preview --port 5050",
+    "typecheck": "vue-tsc --noEmit",
+    "preview": "vite preview",
+    "test": "exit 0",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
+  },
+  "author": {
+    "name": "Mumble SRL",
+    "email": "info@mumbleideas.it",
+    "url": "https://mumbleideas.it"
+  },
+  "license": "ISC",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/vue3-polaris-test.umd.js",
+  "module": "./dist/vue3-polaris-test.es.js",
+  "exports": {
+    ".": {
+      "import": "./dist/vue3-polaris-test.es.js",
+      "require": "./dist/vue3-polaris-test.umd.js"
+    },
+    "./dist/css/*": {
+      "import": "./dist/css/*",
+      "require": "./dist/css/*"
+    },
+    "./dist/sass/*": {
+      "import": "./dist/sass/*",
+      "require": "./dist/sass/*"
+    }
+  },
+  "types": "./dist/types/index.d.ts",
+  "dependencies": {
+    "vue": "^3.3.4"
+  },
+  "devDependencies": {
+    "@storybook/addon-essentials": "^7.4.6",
+    "@storybook/addon-interactions": "^7.4.6",
+    "@storybook/addon-links": "^7.4.6",
+    "@storybook/blocks": "^7.4.6",
+    "@storybook/builder-vite": "^7.4.6",
+    "@storybook/testing-library": "^0.2.2",
+    "@storybook/vue3": "^7.4.6",
+    "@storybook/vue3-vite": "^7.4.6",
+    "@tailwindcss/forms": "^0.5.6",
+    "@types/node": "^20.8.4",
+    "@vitejs/plugin-vue": "^4.2.3",
+    "autoprefixer": "^10.4.16",
+    "cssnano": "^6.0.1",
+    "postcss": "^8.4.31",
+    "postcss-cli": "^10.1.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "sass": "^1.69.1",
+    "storybook": "^7.4.6",
+    "tailwindcss": "^3.3.3",
+    "typescript": "^5.0.2",
+    "vite": "^4.4.5",
+    "vite-plugin-css-injected-by-js": "^3.3.0",
+    "vite-plugin-static-copy": "^0.17.0",
+    "vue-tsc": "^1.8.5"
+  }
+}
