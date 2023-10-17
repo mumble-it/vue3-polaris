@@ -16,24 +16,8 @@ copy the config of tailwind and install it + import:
 ## Button
 
 ### Props
-- [ ] variant - plainMonochrome
-- [ ] variant - tertiary
-- [ ] fullWidth
 - [ ] disclosure
 - [ ] icon
-- [ ] tone
-- [ ] id
-- [ ] url
-- [ ] external
-- [ ] submit
-- [ ] disabled
-- [ ] loading
-- [ ] accessibilityLabel?
-- [ ] role?
-- [ ] ariaControls?
-- [ ] ariaExpanded?
-- [ ] ariaDescribedBy?
-- [ ] ariaChecked
 
 ## Package.json
 

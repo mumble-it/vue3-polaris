@@ -1,0 +1,24 @@
+.p-spinner {
+  @apply inline-block;
+
+  svg {
+    @apply fill-font;
+    animation: rotate 500ms linear infinite;
+
+  }
+
+  &--small {
+    @apply w-5 h-5;
+  }
+
+  &--large svg {
+    width: 2.75rem;
+    height: 2.75rem;
+  }
+
+  @keyframes rotate {
+    100% {
+      transform: rotate(1turn);
+    }
+  }
+}

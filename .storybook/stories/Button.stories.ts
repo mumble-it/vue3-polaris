@@ -11,6 +11,7 @@ const meta = {
   argTypes: {
     size: { control: 'select', options: [ 'medium', 'large' ] },
     textAlign: { control: 'select', options: [ 'center', 'left', 'right' ] },
+    tone: { control: 'select', options: [ 'critical', 'success' ] },
     variant: { control: 'select', options: [ 'plain', 'primary', 'tertiary', 'monochromePlain' ] },
   },
   args: {
@@ -47,7 +48,7 @@ export const Large: Story = {
     setup() {
       return { args }
     },
-    template: '<PButton v-bind="args"> Add product </PButton>'
+    template: '<PButton v-bind="args"> Create Store </PButton>'
   })
 };
 
@@ -60,7 +61,35 @@ export const Primary: Story = {
     setup() {
       return { args }
     },
-    template: '<PButton v-bind="args"> Add product </PButton>'
+    template: '<PButton v-bind="args"> Save theme </PButton>'
+  })
+};
+
+export const PrimarySuccess: Story = {
+  args: {
+    variant: 'primary',
+    tone: 'success'
+  },
+  render: (args, { argTypes }) => ({
+    components: {PButton},
+    setup() {
+      return { args }
+    },
+    template: '<PButton v-bind="args"> Save </PButton>'
+  })
+};
+
+export const PrimaryCritical: Story = {
+  args: {
+    variant: 'primary',
+    tone: 'critical'
+  },
+  render: (args, { argTypes }) => ({
+    components: {PButton},
+    setup() {
+      return { args }
+    },
+    template: '<PButton v-bind="args"> Remove </PButton>'
   })
 };
 
@@ -74,5 +103,58 @@ export const Plain: Story = {
       return { args }
     },
     template: '<PButton v-bind="args"> View shipping settings </PButton>'
+  })
+};
+
+export const PlainCritical: Story = {
+  args: {
+    variant: 'plain',
+    tone: 'critical',
+  },
+  render: (args, { argTypes }) => ({
+    components: {PButton},
+    setup() {
+      return { args }
+    },
+    template: '<PButton v-bind="args"> Remove </PButton>'
+  })
+};
+
+export const Tertiary: Story = {
+  args: {
+    variant: 'tertiary'
+  },
+  render: (args, { argTypes }) => ({
+    components: {PButton},
+    setup() {
+      return { args }
+    },
+    template: '<PButton v-bind="args"> View shipping settings </PButton>'
+  })
+};
+
+export const FullWidth: Story = {
+  args: {
+    fullWidth: true
+  },
+  render: (args, { argTypes }) => ({
+    components: {PButton},
+    setup() {
+      return { args }
+    },
+    template: '<PButton v-bind="args"> Add customer </PButton>'
+  })
+};
+
+export const Loading: Story = {
+  args: {
+    loading: true
+  },
+  render: (args, { argTypes }) => ({
+    components: {PButton},
+    setup() {
+      return { args }
+    },
+    template: '<PButton v-bind="args"> Loading </PButton>'
   })
 };

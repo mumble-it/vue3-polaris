@@ -2,16 +2,22 @@ import {defineConfig} from "vite";
 import vue from "@vitejs/plugin-vue";
 import path from "path";
 import {viteStaticCopy} from 'vite-plugin-static-copy'
+import svgLoader from 'vite-svg-loader';
 
 
 export default defineConfig({
     plugins: [
         vue(),
+        svgLoader(),
         viteStaticCopy({
             targets: [
                 {
                     src: path.resolve(__dirname, './src/sass') + '/[!.]*',
                     dest: './sass',
+                },
+                {
+                    src: path.resolve(__dirname, './src/icons') + '/[!.]*',
+                    dest: './icons',
                 },
             ],
         }),

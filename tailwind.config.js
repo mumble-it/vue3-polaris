@@ -12,8 +12,19 @@ export default {
           "500": '#303030',
           "600": '#1a1a1a'
         },
-        'success': '#0c5132',
-        'critical': '#8e1f0b',
+        'success': {
+          DEFAULT: '#0c5132',
+          '400': '#29845a',
+          '500': '#0c5132',
+          '600': '#136f45',
+        },
+        'critical': {
+          DEFAULT: '#8e1f0b',
+          "400": '#e51c00',
+          "500": '#8e1f0b',
+          "600": '#b5260b',
+          "700": '#5f1507',
+        },
         'caution': '#4f4700',
         'subdued': '#616161',
         'surface': '#ffffff',
@@ -24,6 +35,7 @@ export default {
           '500': '#005bd3',
           '600': '#004299',
         },
+        'disabled': '#b5b5b5',
       },
       fontSize: {
         sm: '0.75rem',
