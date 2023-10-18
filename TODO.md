@@ -19,6 +19,27 @@ copy the config of tailwind and install it + import:
 - [ ] disclosure
 - [ ] icon
 
+## Components TODO
+
+- [ ] Layout
+- [x] Button
+- [ ] ButtonGroup
+- [ ] Tabs - SB
+- [ ] Banner - SB
+- [x] Text
+- [ ] Badge - SB
+- [ ] Dropdown
+- [ ] Select
+- [ ] Input
+- [ ] Checkbox
+- [ ] Icon
+- [ ] Color
+- [ ] Radio
+- [ ] Skeleton - SB
+- [x] Spinner
+- [ ] Modal
+- [ ] Popover
+
 ## Package.json
 
 You must replace all the github-packages-ui-library with the name of your library and peshanghiwa with your own github username in the above file (You must include the @ character too in the username: @YOURUSERNAME)

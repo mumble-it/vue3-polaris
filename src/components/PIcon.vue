@@ -1,20 +1,13 @@
 <script setup lang="ts">
-import { ref, watch } from "vue";
-
 type Props = {
-    name?: string
+    icon?: any
 }
 
-const props = withDefaults(defineProps<Props>(), {
-    name: undefined,
+withDefaults(defineProps<Props>(), {
+    icon: undefined,
 })
-
-const icon = ref()
-watch(() => props.name, async  (value) => {
-        icon.value = await import(/* @vite-ignore */`../icons/${value}.svg`)
-}, { immediate: true })
 </script>
 
 <template>
-    <Component :is="icon" class="p-icon" />
+    <img :src="icon" class="p-icon" />
 </template>

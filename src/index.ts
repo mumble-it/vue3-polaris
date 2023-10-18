@@ -1,2 +1,5 @@
 export { default as PButton } from "./components/PButton.vue"
 export { default as PCard } from "./components/PCard.vue"
+export { default as PIcon } from "./components/PIcon.vue"
+export { default as PSpinner } from "./components/PSpinner.vue"
+export { default as PText } from "./components/PText.vue"
