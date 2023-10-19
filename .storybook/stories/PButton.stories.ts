@@ -28,8 +28,6 @@ type Story = StoryObj<typeof meta>;
  * to learn how to use render functions.
  */
 export const Default: Story = {
-  args: {
-  },
   render: (args, { argTypes }) => ({
     components: {PButton},
     setup() {
