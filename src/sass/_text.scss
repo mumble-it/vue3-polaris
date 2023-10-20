@@ -90,11 +90,11 @@
   }
 
   &--critical {
-    @apply text-critical;
+    @apply text-critical-600;
   }
 
   &--caution {
-    @apply text-caution;
+    @apply text-caution-800;
   }
 
   &--subdued {
@@ -102,7 +102,7 @@
   }
 
   &--text-inverse {
-    @apply text-text-inverse;
+    @apply text-surface-700;
   }
 
   &--visually-hidden {

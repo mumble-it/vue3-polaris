@@ -1,10 +1,144 @@
 @tailwind base;
 @tailwind components;
+
+@layer utilities {
+  .p-space-0 {
+    padding: var(--p-space-0);
+  }
+
+  .p-space-025 {
+    padding: var(--p-space-025);
+  }
+
+  .p-space-050 {
+    padding: var(--p-space-050);
+  }
+
+  .p-space-100 {
+    padding: var(--p-space-100);
+  }
+
+  .p-space-150 {
+    padding: var(--p-space-150);
+  }
+
+  .p-space-200 {
+    padding: var(--p-space-200);
+  }
+
+  .p-space-300 {
+    padding: var(--p-space-300);
+  }
+
+  .p-space-400 {
+    padding: var(--p-space-400);
+  }
+
+  .p-space-500 {
+    padding: var(--p-space-500);
+  }
+
+  .p-space-600 {
+    padding: var(--p-space-600);
+  }
+
+  .p-space-800 {
+    padding: var(--p-space-800);
+  }
+
+  .p-space-1000 {
+    padding: var(--p-space-1000);
+  }
+
+  .p-space-1200 {
+    padding: var(--p-space-1200);
+  }
+
+  .p-space-1600 {
+    padding: var(--p-space-1600);
+  }
+
+  .p-space-2000 {
+    padding: var(--p-space-2000);
+  }
+
+  .p-space-2400 {
+    padding: var(--p-space-2400);
+  }
+
+  .p-space-2800 {
+    padding: var(--p-space-2800);
+  }
+
+  .p-space-3200 {
+    padding: var(--p-space-3200);
+  }
+}
+
+.bg-inverse {
+  @apply bg-primary-600;
+}
+
+.bg-surface-warning {
+  @apply bg-warning-200;
+}
+
+.bg-surface-critical {
+  @apply bg-critical-200;
+}
+
+.bg-surface-emphasis {
+  @apply bg-emphasis-200;
+}
+
+.bg-surface-info {
+  @apply bg-info-200;
+}
+
+.bg-surface-inverse {
+  @apply bg-primary;
+}
+
+.bg-surface-success {
+  @apply bg-success-200;
+}
+
+.bg-surface-caution {
+  @apply bg-caution-200;
+}
+
+.bg-surface-transparent {
+  @apply bg-transparent;
+}
+
 @tailwind utilities;
+
+:root {
+  --p-space-0: 0px;
+  --p-space-025: 1px;
+  --p-space-050: 2px;
+  --p-space-100: 4px;
+  --p-space-150: 6px;
+  --p-space-200: 8px;
+  --p-space-300: 12px;
+  --p-space-400: 16px;
+  --p-space-500: 20px;
+  --p-space-600: 24px;
+  --p-space-800: 32px;
+  --p-space-1000: 40px;
+  --p-space-1200: 48px;
+  --p-space-1600: 64px;
+  --p-space-2000: 80px;
+  --p-space-2400: 96px;
+  --p-space-2800: 112px;
+  --p-space-3200: 128px;
+}
+
 
 @import "typography";
 
 @import "button";
+@import "card";
 @import "icon";
 @import "spinner";
 @import "text";
