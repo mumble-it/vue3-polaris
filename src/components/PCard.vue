@@ -15,17 +15,17 @@ const props = withDefaults(defineProps<Props>(), {
 })
 
 const padding = computed(() => props.padding ?
-    typeof props.padding === 'object' ? getClassesFromBreakpoints(props.padding, 'p-space') : `p-space-${props.padding}`
+    typeof props.padding === 'object' ? getClassesFromBreakpoints<SpaceScale>(props.padding, 'p-space') : `p-space-${props.padding}`
     : null)
 
 const background = computed(() => props.background ? props.background : '')
 
-const classes = computed(() => [ 'p-card test', padding.value, background.value ])
+const containerClasses = computed(() => [ 'p-card__container', padding.value, background.value ])
 </script>
 
 <template>
     <div class="p-card">
-        <div :class="['p-card__container', classes]">
+        <div :class="containerClasses">
             <slot />
         </div>
     </div>
