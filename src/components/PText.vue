@@ -1,7 +1,6 @@
 <script setup lang="ts">
-import {computed} from "vue";
-import {TextAlignment, TextAs, TextDecorationLine, TextTone, TextVariant, TextWeight} from "@/types";
-
+import { computed } from 'vue'
+import { TextAlignment, TextAs, TextDecorationLine, TextTone, TextVariant, TextWeight } from '@/types'
 
 type Props = {
     as?: TextAs
@@ -14,7 +13,7 @@ type Props = {
     truncate?: boolean
     variant?: TextVariant
     visuallyHidden?: boolean
-};
+}
 
 const props = withDefaults(defineProps<Props>(), {
     alignment: 'start',
@@ -27,10 +26,11 @@ const props = withDefaults(defineProps<Props>(), {
     truncate: false,
     variant: 'bodyMd',
     visuallyHidden: false,
-});
+})
 
-const classes = computed(() =>
-    ['p-text', {
+const classes = computed(() => [
+    'p-text',
+    {
         'p-text--body-sm': props.variant === 'bodySm',
         'p-text--body-md': props.variant === 'bodyMd',
         'p-text--body-lg': props.variant === 'bodyLg',
@@ -57,13 +57,12 @@ const classes = computed(() =>
         'p-text--visually-hidden': props.visuallyHidden,
         'p-text--line-through': props.textDecorationLine === 'line-through',
         'p-text--truncate': props.truncate,
-    }]
-)
-
+    },
+])
 </script>
 
 <template>
-    <Component :id="id" :is="as" :class="classes">
-        <slot/>
+    <Component :is="as" :id="id" :class="classes">
+        <slot />
     </Component>
 </template>

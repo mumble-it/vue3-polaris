@@ -16,7 +16,7 @@ export const SPACES = [
     '2000',
     '2400',
     '2800',
-    '3200'
+    '3200',
 ]
 
 export const BACKGROUNDS = [

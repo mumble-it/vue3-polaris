@@ -1,5 +1,3 @@
-LINTING
-
 ## Project installation doc
 
 1. Default

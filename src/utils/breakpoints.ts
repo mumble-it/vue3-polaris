@@ -1,12 +1,12 @@
-import {Breakpoints} from "@/types";
+import { Breakpoints } from '@/types'
 
 export const getClassesFromBreakpoints = <T>(obj: { [Breakpoint in Breakpoints]?: T }, base: string) => {
-    const breakpoints = Object.keys(obj);
+    const breakpoints = Object.keys(obj)
     let classes = ''
 
-    for (let breakpoint of breakpoints) {
+    for (const breakpoint of breakpoints) {
         // @ts-ignore
-        classes +=  `${breakpoint}:${base}-${obj[breakpoint]} `
+        classes += `${breakpoint}:${base}-${obj[breakpoint]} `
     }
 
     return classes

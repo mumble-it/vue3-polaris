@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import {ButtonAlign, ButtonSize, ButtonTone, ButtonVariant} from "@/types";
-import {computed} from "vue";
-import PSpinner from "@/components/PSpinner.vue";
+import { ButtonAlign, ButtonSize, ButtonTone, ButtonVariant } from '@/types'
+import { computed } from 'vue'
+import PSpinner from '@/components/PSpinner.vue'
 
 type Props = {
     accessibilityLabel?: string
@@ -21,7 +21,7 @@ type Props = {
     tone?: ButtonTone
     url?: string
     variant?: ButtonVariant
-};
+}
 
 const props = withDefaults(defineProps<Props>(), {
     accessibilityLabel: undefined,
@@ -41,7 +41,7 @@ const props = withDefaults(defineProps<Props>(), {
     tone: undefined,
     url: undefined,
     variant: undefined,
-});
+})
 
 const classes = computed(() => [
     'p-btn',
@@ -60,21 +60,20 @@ const classes = computed(() => [
         'p-btn--full-width': props.fullWidth,
         'p-btn--disabled': props.disabled,
         'p-btn--loading': props.loading,
-    }
+    },
 ])
-
 </script>
 
 <template>
     <Component
         :is="url ? 'a' : 'button'"
+        :id="id"
         :class="classes"
         :disabled="disabled"
         :submit="submit"
         :href="url"
         :target="external ? '_blank' : undefined"
         :rel="external ? 'noopener noreferrer' : undefined"
-        :id="id"
         :aria-label="accessibilityLabel"
         :aria-controls="ariaControls"
         :aria-expanded="typeof ariaExpanded !== 'undefined' ? ariaExpanded : undefined"
@@ -82,7 +81,7 @@ const classes = computed(() => [
         :aria-describedby="ariaDescribedBy"
         :role="role"
     >
-        <PSpinner accessibility-label="Loading" size="small" v-show="loading" class="p-btn__spinner" />
+        <PSpinner v-show="loading" accessibility-label="Loading" size="small" class="p-btn__spinner" />
         <span class="p-btn__content">
             <slot />
         </span>

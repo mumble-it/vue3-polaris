@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import {computed} from 'vue'
-import {Backgrounds, Breakpoints, SpaceScale} from "@/types";
-import {getClassesFromBreakpoints} from "@/utils";
+import { computed } from 'vue'
+import { Backgrounds, Breakpoints, SpaceScale } from '@/types'
+import { getClassesFromBreakpoints } from '@/utils'
 
 interface Props {
     background?: Backgrounds
@@ -11,16 +11,20 @@ interface Props {
 const props = withDefaults(defineProps<Props>(), {
     background: 'bg-surface',
     // @ts-ignore
-    padding: {xs: '400', sm: '500'},
+    padding: { xs: '400', sm: '500' },
 })
 
-const padding = computed(() => props.padding ?
-    typeof props.padding === 'object' ? getClassesFromBreakpoints<SpaceScale>(props.padding, 'p-space') : `p-space-${props.padding}`
-    : null)
+const padding = computed(() =>
+    props.padding
+        ? typeof props.padding === 'object'
+            ? getClassesFromBreakpoints<SpaceScale>(props.padding, 'p-space')
+            : `p-space-${props.padding}`
+        : null
+)
 
-const background = computed(() => props.background ? props.background : '')
+const background = computed(() => (props.background ? props.background : ''))
 
-const containerClasses = computed(() => [ 'p-card__container', padding.value, background.value ])
+const containerClasses = computed(() => ['p-card__container', padding.value, background.value])
 </script>
 
 <template>
