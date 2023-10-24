@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/vue3'
 
-import PBadge from '../../src/components/PBadge.vue'
+import PBadge from '../../src/components/PBadge/PBadge.vue'
 
 // More on how to set up stories at: https://storybook.js.org/docs/vue/writing-stories/introduction
 const meta = {
@@ -11,6 +11,7 @@ const meta = {
     argTypes: {
         tone: { control: 'select', options: ['info', 'success', 'attention', 'warning', 'critical'] },
         size: { control: 'select', options: ['medium', 'large'] },
+        progress: { control: 'select', options: ['incomplete', 'partiallyComplete', 'complete'] },
     },
     args: {
         size: 'medium',
