@@ -1,12 +1,15 @@
 <script setup lang="ts">
-import {computed, onMounted, ref, watch} from 'vue'
+import {computed, onMounted, ref, useSlots, watch} from 'vue'
 import {countDecimals, debounce, uid} from "@/utils";
-import {TextFieldType} from "@/types";
+import {Action, TextFieldType} from "@/types";
 import PIcon from "@/components/PIcon.vue";
 // @ts-ignore
 import {CaretDownMinor, CaretUpMinor} from "@/icons"
+import PButton from "@/components/PButton.vue";
+import PText from "@/components/PText.vue";
 
 type Props = {
+    action: Action,
     autocomplete?: string
     autofocus?: boolean
     debounce?: number
@@ -28,6 +31,7 @@ type Props = {
 }
 
 const props = withDefaults(defineProps<Props>(), {
+    action: undefined,
     autocomplete: undefined,
     autofocus: false,
     debounce: undefined,
@@ -51,6 +55,10 @@ const props = withDefaults(defineProps<Props>(), {
 const emit = defineEmits<{
     (event: 'update:value', value: string | number): void
 }>()
+
+const slots = useSlots()
+const hasPrefix = computed(() => !!slots.prefix)
+const hasSuffix = computed(() => !!slots.suffix)
 
 watch(
     () => props.value,
@@ -107,11 +115,30 @@ const onClickButtonNumber = (action: 'add' | 'remove') => {
 
 <template>
     <div :class="classes">
-        <label :id="`text-field-label-${internalId}`" :for="internalId"
-               :class="['p-text-field__label', { 'sr-only': labelHidden }]">
-            {{ label }}
-        </label>
+        <div class="p-text-field__label-wrapper">
+            <label :id="`text-field-label-${internalId}`" :for="internalId"
+                   :class="['p-text-field__label', { 'sr-only': labelHidden }]">
+                <PText>{{ label }}</PText>
+            </label>
+            <PButton
+                v-if="action"
+                variant="plain"
+                :id="action.id"
+                :url="action.url"
+                :external="action.external"
+                :target="action.target"
+                :aria-label="action.accessibilityLabel"
+                @click="action.onAction"
+                @mouseenter="action.onMouseEnter"
+                @touchstart="action.onTouchStart"
+            >
+                <PText> {{ action.content }} </PText>
+            </PButton>
+        </div>
         <div class="p-text-field__input-container">
+            <div v-if="hasPrefix" class="p-text-field__prefix" :id="`text-field-prefix-${internalId}`">
+                <slot name="prefix" />
+            </div>
             <Component
                 :is="multiline ? 'textarea' : 'input'"
                 :id="internalId"
@@ -133,7 +160,10 @@ const onClickButtonNumber = (action: 'add' | 'remove') => {
                 :aria-multiline="multiline ? 'true' : undefined"
                 @input="onInput"
             />
-            <div v-if="type === 'number'" class="p-text-field__suffix" aria-hidden="true">
+            <div v-if="hasSuffix" class="p-text-field__suffix" :id="`text-field-suffix-${internalId}`">
+                <slot name="suffix" />
+            </div>
+            <div v-if="type === 'number'" class="p-text-field__number-actions" aria-hidden="true">
                 <div role="button" class="p-text-field__number-button" tabindex="-1" @click="onClickButtonNumber('add')">
                     <PIcon class="p-text-field__number-icon" :icon="CaretUpMinor" />
                 </div>

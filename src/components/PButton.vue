@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ButtonAlign, ButtonSize, ButtonTone, ButtonVariant } from '@/types'
+import {ButtonAlign, ButtonSize, ButtonTone, ButtonVariant, Target} from '@/types'
 import { computed } from 'vue'
 import PSpinner from '@/components/PSpinner.vue'
 
@@ -17,6 +17,7 @@ type Props = {
     role?: string
     size?: ButtonSize
     submit?: boolean
+    target?: Target
     textAlign?: ButtonAlign
     tone?: ButtonTone
     url?: string
@@ -37,6 +38,7 @@ const props = withDefaults(defineProps<Props>(), {
     role: undefined,
     size: 'medium',
     submit: undefined,
+    target: undefined,
     textAlign: undefined,
     tone: undefined,
     url: undefined,
@@ -72,7 +74,7 @@ const classes = computed(() => [
         :disabled="disabled"
         :submit="submit"
         :href="url"
-        :target="external ? '_blank' : undefined"
+        :target="external ? '_blank' : target"
         :rel="external ? 'noopener noreferrer' : undefined"
         :aria-label="accessibilityLabel"
         :aria-controls="ariaControls"
@@ -81,8 +83,8 @@ const classes = computed(() => [
         :aria-describedby="ariaDescribedBy"
         :role="role"
     >
-        <PSpinner v-show="loading" accessibility-label="Loading" size="small" class="p-btn__spinner" />
-        <span class="p-btn__content">
+        <PSpinner v-show="loading" accessibility-label="Loading" size="small" class="p-button__spinner" />
+        <span class="p-button__content">
             <slot />
         </span>
     </Component>

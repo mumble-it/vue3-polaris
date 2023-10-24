@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/vue3';
 
 import PButton from '../../src/components/PButton.vue';
+import PText from '../../src/components/PText.vue';
 
 // More on how to set up stories at: https://storybook.js.org/docs/vue/writing-stories/introduction
 const meta = {
@@ -42,11 +43,13 @@ export const Large: Story = {
     size: 'large'
   },
   render: (args, { argTypes }) => ({
-    components: {PButton},
+    components: {PButton, PText},
     setup() {
       return { args }
     },
-    template: '<PButton v-bind="args"> Create Store </PButton>'
+    template: `<PButton v-bind="args"> 
+      <PText> Create Store </PText> 
+    </PButton>`
   })
 };
 

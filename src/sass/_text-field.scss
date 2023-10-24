@@ -21,8 +21,12 @@
     background-color: #fafafa;
   }
 
+  &__label-wrapper {
+    @apply flex justify-between mb-1;
+  }
+
   &__label {
-    @apply block break-words mb-1;
+    @apply block break-words;
     overflow-wrap: break-word;
   }
 
@@ -31,24 +35,24 @@
     border: 0.04125rem solid #8a8a8a;
   }
 
-  &:focus-within &__backdrop {
+  &__input:focus ~ &__backdrop {
     @apply border-primary-600 bg-surface-200;
     border-width: 0.0625rem;
     outline: 0.125rem solid #005bd3;
     outline-offset: 0.0625rem;
   }
 
-  &__suffix {
+  &__number-actions {
     @apply flex flex-col cursor-pointer justify-center z-20 m-1;
     width: 1.375rem;
   }
 
-  &--number &__suffix {
+  &--number &__number-actions {
     @apply invisible;
   }
 
-  &--number:hover &__suffix,
-  &--number &__input:focus ~ &__suffix {
+  &--number:hover &__number-actions,
+  &--number &__input:focus ~ &__number-actions {
     @apply visible;
   }
 
@@ -90,5 +94,18 @@
 
   &__number-icon path {
     fill: #4a4a4a;
+  }
+
+  &__prefix {
+    @apply relative z-20 ml-3 mr-2 text-subdued;
+    line-height: 1.5rem;
+  }
+
+  &__prefix + &__input {
+    @apply pl-0;
+  }
+
+  &__suffix {
+    @apply relative z-20 text-subdued mr-3 ml-2;
   }
 }

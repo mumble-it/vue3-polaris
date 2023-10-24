@@ -29,6 +29,7 @@
 
   &--plain {
     @apply bg-transparent shadow-none border-0 text-emphasis;
+    margin: calc(calc(2.25rem - 1.25rem - 0.125rem )/2*-1) calc(0.75rem*-1);
   }
 
   &--plain:hover {

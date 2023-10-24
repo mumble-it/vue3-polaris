@@ -58,3 +58,48 @@ export const Multiline: Story = {
     template: '<PTextField v-bind="args" />'
   })
 };
+
+export const Prefix: Story = {
+  args: {
+    label: 'Quantity',
+    value: 1,
+    type: 'number'
+  },
+  render: (args) => ({
+    components: { PTextField },
+    setup() {
+      return { args }
+    },
+    template: '<PTextField v-bind="args"> <template #prefix> $ </template> </PTextField>'
+  })
+};
+
+export const Suffix: Story = {
+  args: {
+    label: 'Quantity',
+    value: 1,
+    type: 'number'
+  },
+  render: (args) => ({
+    components: { PTextField },
+    setup() {
+      return { args }
+    },
+    template: '<PTextField v-bind="args"> <template #suffix> $ </template> </PTextField>'
+  })
+};
+
+export const LabelAction: Story = {
+  args: {
+    label: 'Tariff code',
+    value: '6201.11.0000',
+    action: { content: 'Look up codes' }
+  },
+  render: (args) => ({
+    components: { PTextField },
+    setup() {
+      return { args }
+    },
+    template: '<PTextField v-bind="args"> <template #suffix> $ </template> </PTextField>'
+  })
+};
