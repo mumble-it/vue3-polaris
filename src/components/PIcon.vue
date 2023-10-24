@@ -3,7 +3,7 @@ type Props = {
     icon?: any
 }
 
- withDefaults(defineProps<Props>(), {
+withDefaults(defineProps<Props>(), {
     icon: undefined,
 })
 </script>

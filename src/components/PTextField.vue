@@ -1,15 +1,15 @@
 <script setup lang="ts">
-import {computed, onMounted, ref, useSlots, watch} from 'vue'
-import {countDecimals, debounce, uid} from "@/utils";
-import {Action, TextFieldType} from "@/types";
-import PIcon from "@/components/PIcon.vue";
+import { computed, onMounted, ref, useSlots, watch } from 'vue'
+import { countDecimals, debounce as debounceFunction, uid } from '@/utils'
+import { Action, TextFieldType } from '@/types'
+import PIcon from '@/components/PIcon.vue'
 // @ts-ignore
-import {CaretDownMinor, CaretUpMinor} from "@/icons"
-import PButton from "@/components/PButton.vue";
-import PText from "@/components/PText.vue";
+import { CaretDownMinor, CaretUpMinor } from '@/icons'
+import PButton from '@/components/PButton.vue'
+import PText from '@/components/PText.vue'
 
 type Props = {
-    action: Action,
+    action: Action
     autocomplete?: string
     autofocus?: boolean
     debounce?: number
@@ -24,7 +24,7 @@ type Props = {
     multiline?: number
     name?: string
     placeholder?: string
-    required?: boolean,
+    required?: boolean
     step?: string
     type?: TextFieldType
     value?: string | number
@@ -102,11 +102,10 @@ onMounted(() => {
     if (props.autofocus) input.value?.focus()
 })
 
-const onInput = debounce((e: InputEvent) => {
+const onInput = debounceFunction((e: InputEvent) => {
     console.log(e.target.value)
     emit('update:value', e.target.value)
 }, props.debounce)
-
 
 const onClickButtonNumber = (action: 'add' | 'remove') => {
     action === 'add' ? input.value?.stepUp() : input.value?.stepDown()
@@ -116,14 +115,17 @@ const onClickButtonNumber = (action: 'add' | 'remove') => {
 <template>
     <div :class="classes">
         <div class="p-text-field__label-wrapper">
-            <label :id="`text-field-label-${internalId}`" :for="internalId"
-                   :class="['p-text-field__label', { 'sr-only': labelHidden }]">
+            <label
+                :id="`text-field-label-${internalId}`"
+                :for="internalId"
+                :class="['p-text-field__label', { 'sr-only': labelHidden }]"
+            >
                 <PText>{{ label }}</PText>
             </label>
             <PButton
                 v-if="action"
-                variant="plain"
                 :id="action.id"
+                variant="plain"
                 :url="action.url"
                 :external="action.external"
                 :target="action.target"
@@ -136,7 +138,7 @@ const onClickButtonNumber = (action: 'add' | 'remove') => {
             </PButton>
         </div>
         <div class="p-text-field__input-container">
-            <div v-if="hasPrefix" class="p-text-field__prefix" :id="`text-field-prefix-${internalId}`">
+            <div v-if="hasPrefix" :id="`text-field-prefix-${internalId}`" class="p-text-field__prefix">
                 <slot name="prefix" />
             </div>
             <Component
@@ -160,18 +162,28 @@ const onClickButtonNumber = (action: 'add' | 'remove') => {
                 :aria-multiline="multiline ? 'true' : undefined"
                 @input="onInput"
             />
-            <div v-if="hasSuffix" class="p-text-field__suffix" :id="`text-field-suffix-${internalId}`">
+            <div v-if="hasSuffix" :id="`text-field-suffix-${internalId}`" class="p-text-field__suffix">
                 <slot name="suffix" />
             </div>
             <div v-if="type === 'number'" class="p-text-field__number-actions" aria-hidden="true">
-                <div role="button" class="p-text-field__number-button" tabindex="-1" @click="onClickButtonNumber('add')">
+                <div
+                    role="button"
+                    class="p-text-field__number-button"
+                    tabindex="-1"
+                    @click="onClickButtonNumber('add')"
+                >
                     <PIcon class="p-text-field__number-icon" :icon="CaretUpMinor" />
                 </div>
-                <div role="button" class="p-text-field__number-button" tabindex="-1" @click="onClickButtonNumber('remove')">
+                <div
+                    role="button"
+                    class="p-text-field__number-button"
+                    tabindex="-1"
+                    @click="onClickButtonNumber('remove')"
+                >
                     <PIcon class="p-text-field__number-icon" :icon="CaretDownMinor" />
                 </div>
             </div>
-            <div class="p-text-field__backdrop"/>
+            <div class="p-text-field__backdrop" />
         </div>
     </div>
 </template>

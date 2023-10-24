@@ -20,5 +20,4 @@ export const debounce = (func: any, duration?: number) => {
     }
 }
 
-
 export * from './breakpoints.ts'

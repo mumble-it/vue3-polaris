@@ -10,26 +10,26 @@ declare global {
     }
 }
 
-export type Target = '_blank' | '_self' | '_parent' | '_top';
+export type Target = '_blank' | '_self' | '_parent' | '_top'
 export interface Action {
     /** A unique identifier for the action */
-    id?: string;
+    id?: string
     /** Content the action displays */
-    content?: string;
+    content?: string
     /** Visually hidden text for screen readers */
-    accessibilityLabel?: string;
+    accessibilityLabel?: string
     /** A destination to link to, rendered in the action */
-    url?: string;
+    url?: string
     /** Forces url to open in a new tab */
-    external?: boolean;
+    external?: boolean
     /** Where to display the url */
-    target?: Target;
+    target?: Target
     /** Callback when an action takes place */
-    onAction?(): void;
+    onAction?(): void
     /** Callback when mouse enter */
-    onMouseEnter?(): void;
+    onMouseEnter?(): void
     /** Callback when element is touched */
-    onTouchStart?(): void;
+    onTouchStart?(): void
 }
 
 export * from './button.types.ts'
@@ -38,4 +38,3 @@ export * from './text.types.ts'
 export * from './text-field.types.ts'
 export * from './tokens.types.ts'
 export * from './badge.types.ts'
-

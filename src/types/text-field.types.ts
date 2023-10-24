@@ -1,4 +1,14 @@
-export type TextFieldType = 'text' | 'email' | 'date' | 'hidden' | 'number' | 'password' | 'search' | 'tel' | 'time' | 'url'
+export type TextFieldType =
+    | 'text'
+    | 'email'
+    | 'date'
+    | 'hidden'
+    | 'number'
+    | 'password'
+    | 'search'
+    | 'tel'
+    | 'time'
+    | 'url'
 export type TextFieldAutocomplete =
     | 'on'
     | 'name'

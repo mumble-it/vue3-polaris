@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {ButtonAlign, ButtonSize, ButtonTone, ButtonVariant, Target} from '@/types'
+import { ButtonAlign, ButtonSize, ButtonTone, ButtonVariant, Target } from '@/types'
 import { computed } from 'vue'
 import PSpinner from '@/components/PSpinner.vue'
 
