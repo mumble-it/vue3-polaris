@@ -30,7 +30,7 @@ copy the config of tailwind and install it + import:
 - [ ] Select
 - [ ] Input
 - [ ] Checkbox
-- [ ] Icon
+- [X] Icon
 - [ ] Color
 - [ ] Radio
 - [ ] Skeleton - SB

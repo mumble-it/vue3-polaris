@@ -1,0 +1,15 @@
+export type TextFieldType = 'text' | 'email' | 'date' | 'hidden' | 'number' | 'password' | 'search' | 'tel' | 'time' | 'url'
+export type TextFieldAutocomplete =
+    | 'on'
+    | 'name'
+    | 'given-name'
+    | 'family-name'
+    | 'nickname'
+    | 'email'
+    | 'username'
+    | 'new-password'
+    | 'current-password'
+    | 'organization'
+    | 'organization-title'
+    | 'tel'
+    | string

@@ -3,11 +3,11 @@ type Props = {
     icon?: any
 }
 
-withDefaults(defineProps<Props>(), {
+ withDefaults(defineProps<Props>(), {
     icon: undefined,
 })
 </script>
 
 <template>
-    <img :src="icon" class="p-icon" />
+    <Component :is="icon" class="p-icon" />
 </template>

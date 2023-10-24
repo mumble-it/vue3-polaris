@@ -44,22 +44,22 @@ const props = withDefaults(defineProps<Props>(), {
 })
 
 const classes = computed(() => [
-    'p-btn',
+    'p-button',
     {
-        'p-btn--medium': props.size === 'medium',
-        'p-btn--large': props.size === 'large',
-        'p-btn--center': props.textAlign === 'center',
-        'p-btn--left': props.textAlign === 'left',
-        'p-btn--right': props.textAlign === 'right',
-        'p-btn--plain': props.variant === 'plain',
-        'p-btn--primary': props.variant === 'primary',
-        'p-btn--tertiary': props.variant === 'tertiary',
-        'p-btn--monochrome-plain': props.variant === 'monochromePlain',
-        'p-btn--critical': props.tone === 'critical',
-        'p-btn--success': props.tone === 'success',
-        'p-btn--full-width': props.fullWidth,
-        'p-btn--disabled': props.disabled,
-        'p-btn--loading': props.loading,
+        'p-button--medium': props.size === 'medium',
+        'p-button--large': props.size === 'large',
+        'p-button--center': props.textAlign === 'center',
+        'p-button--left': props.textAlign === 'left',
+        'p-button--right': props.textAlign === 'right',
+        'p-button--plain': props.variant === 'plain',
+        'p-button--primary': props.variant === 'primary',
+        'p-button--tertiary': props.variant === 'tertiary',
+        'p-button--monochrome-plain': props.variant === 'monochromePlain',
+        'p-button--critical': props.tone === 'critical',
+        'p-button--success': props.tone === 'success',
+        'p-button--full-width': props.fullWidth,
+        'p-button--disabled': props.disabled,
+        'p-button--loading': props.loading,
     },
 ])
 </script>
