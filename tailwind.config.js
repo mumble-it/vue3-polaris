@@ -22,6 +22,7 @@ export default {
                 'critical': {
                     DEFAULT: '#e51c00',
                     "200": '#fee9e8',
+                    '300': '#fedad9',
                     "500": '#e51c00',
                     "600": '#b5260b',
                     "700": '#8e1f0b',
@@ -30,10 +31,13 @@ export default {
                 'warning': {
                     DEFAULT: '#ffb800',
                     "200": '#fff1e3',
+                    '300': '#ffd6a4',
                     "500": '#ffb800',
+                    '700': '#5e4200',
                 },
                 'caution': {
                     "200": '#fff1e3',
+                    '400': '#ffef9d',
                     "800": '#4f4700',
                 },
                 'subdued': '#616161',
@@ -53,7 +57,9 @@ export default {
                 'info': {
                     DEFAULT: '#91d0ff',
                     '200': '#eaf4ff',
+                    '300': '#e0f0ff',
                     '500': '#91d0ff',
+                    '700': '#00527c',
                 },
                 'disabled': '#b5b5b5',
             },

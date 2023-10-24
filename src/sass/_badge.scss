@@ -1,0 +1,32 @@
+.p-badge {
+    @apply inline-flex items-center rounded-lg text-subdued;
+    background-color: rgba(0,0,0,.06);
+
+    &--medium {
+        @apply px-2 py-0.5;
+    }
+
+    &--large {
+        @apply px-2 py-1;
+    }
+
+    &--info {
+        @apply bg-info-300 text-info-700;
+    }
+
+    &--success {
+        @apply bg-success-200 text-success;
+    }
+
+    &--attention {
+        @apply bg-caution-400 text-caution-800;
+    }
+
+    &--warning {
+        @apply bg-warning-300 text-warning-700;
+    }
+
+    &--critical {
+        @apply bg-critical-300 text-critical-700;
+    }
+}
