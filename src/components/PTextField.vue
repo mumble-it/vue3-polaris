@@ -4,14 +4,15 @@ import { countDecimals, debounce as debounceFunction, uid } from '@/utils'
 import { Action, TextFieldType } from '@/types'
 import PIcon from '@/components/PIcon.vue'
 // @ts-ignore
-import { CaretDownMinor, CaretUpMinor } from '@/icons'
+import { CaretDownMinor, CaretUpMinor, CircleCancelMinor } from '@/icons'
 import PButton from '@/components/PButton.vue'
 import PText from '@/components/PText.vue'
 
 type Props = {
-    action: Action
+    action?: Action
     autocomplete?: string
     autofocus?: boolean
+    clearButton?: boolean
     debounce?: number
     decimals?: number
     disabled?: boolean
@@ -25,15 +26,18 @@ type Props = {
     name?: string
     placeholder?: string
     required?: boolean
+    readOnly?: boolean
+    selectTextOnFocus?: boolean
     step?: string
     type?: TextFieldType
-    value?: string | number
+    value?: string | number | null
 }
 
 const props = withDefaults(defineProps<Props>(), {
     action: undefined,
     autocomplete: undefined,
     autofocus: false,
+    clearButton: false,
     debounce: undefined,
     decimals: undefined,
     disabled: undefined,
@@ -47,13 +51,15 @@ const props = withDefaults(defineProps<Props>(), {
     name: undefined,
     placeholder: undefined,
     required: undefined,
+    readOnly: false,
+    selectTextOnFocus: false,
     step: undefined,
     type: 'text',
     value: undefined,
 })
 
 const emit = defineEmits<{
-    (event: 'update:value', value: string | number): void
+    (event: 'update:value', value: string | number | null): void
 }>()
 
 const slots = useSlots()
@@ -95,6 +101,8 @@ const classes = computed(() => [
     'p-text-field',
     {
         'p-text-field--number': props.type === 'number',
+        'p-text-field--disabled': props.disabled,
+        'p-text-field--read-only': props.readOnly,
     },
 ])
 
@@ -103,12 +111,22 @@ onMounted(() => {
 })
 
 const onInput = debounceFunction((e: InputEvent) => {
-    console.log(e.target.value)
-    emit('update:value', e.target.value)
+    const value = e.target.value
+    emit('update:value', props.type === 'number' ? +value : value )
 }, props.debounce)
+
+const onFocus = (e: InputEvent) => {
+    if(props.selectTextOnFocus) e.target.select()
+}
 
 const onClickButtonNumber = (action: 'add' | 'remove') => {
     action === 'add' ? input.value?.stepUp() : input.value?.stepDown()
+    const value = input.value?.value || '0'
+    emit('update:value', props.type === 'number' ? +value : value )
+}
+
+const onClickClear = () => {
+    emit('update:value', null)
 }
 </script>
 
@@ -149,22 +167,27 @@ const onClickButtonNumber = (action: 'add' | 'remove') => {
                 :type="type"
                 :value="value"
                 :name="name"
-                :required="required"
                 :placeholder="placeholder"
                 :disabled="disabled"
                 :autocomplete="autocomplete"
                 :maxlength="max"
                 :step="step"
-                :rows="multiline"
                 :multiline="multiline ? 'true' : undefined"
+                :readonly="readOnly"
+                :required="required"
+                :rows="multiline"
                 :aria-describedby="helpText ? `text-field-help-text-${internalId}` : undefined"
                 :aria-labelledby="label ? `text-field-label-${internalId}` : undefined"
                 :aria-multiline="multiline ? 'true' : undefined"
                 @input="onInput"
+                @focus="onFocus"
             />
             <div v-if="hasSuffix" :id="`text-field-suffix-${internalId}`" class="p-text-field__suffix">
                 <slot name="suffix" />
             </div>
+            <button v-if="clearButton" type="button" class="p-text-field__clear-button" @click="onClickClear">
+                <PIcon :icon="CircleCancelMinor" />
+            </button>
             <div v-if="type === 'number'" class="p-text-field__number-actions" aria-hidden="true">
                 <div
                     role="button"

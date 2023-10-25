@@ -8,6 +8,7 @@ const meta = {
   tags: ['autodocs'],
   argTypes: {
     // size: { control: 'select', options: ['small', 'large']}
+    'onUpdate:value': { action: 'update:value' },
   },
 } satisfies Meta<typeof PTextField>;
 
@@ -101,5 +102,20 @@ export const LabelAction: Story = {
       return { args }
     },
     template: '<PTextField v-bind="args"> <template #suffix> $ </template> </PTextField>'
+  })
+};
+
+export const Disabled: Story = {
+  args: {
+    label: 'StoreName',
+    disabled: true,
+    autoComplete: 'off',
+  },
+  render: (args) => ({
+    components: { PTextField },
+    setup() {
+      return { args }
+    },
+    template: '<PTextField v-bind="args" />'
   })
 };

@@ -35,8 +35,8 @@ const classes = computed(() => [
                 />
             </svg>
         </span>
-        <span v-if="accessibilityLabel" role="status"
-            ><PText visually-hidden> {{ accessibilityLabel }} </PText></span
-        >
+        <span v-if="accessibilityLabel" role="status">
+            <PText visually-hidden> {{ accessibilityLabel }} </PText>
+        </span>
     </div>
 </template>

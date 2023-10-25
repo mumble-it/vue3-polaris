@@ -1,6 +1,26 @@
 .p-text-field {
   @apply text-base;
 
+  &--read-only {
+    @apply text-subdued;
+  }
+
+  &--disabled {
+    @apply text-disabled;
+  }
+
+  &--disabled &__backdrop,
+  &--read-only &__backdrop
+  {
+    @apply bg-surface-disabled border-none;
+  }
+
+  &--disabled &__input:hover ~ &__backdrop,
+  &--read-only &__input:hover ~ &__backdrop
+  {
+    @apply bg-surface-disabled;
+  }
+
   &__input-container {
     @apply flex items-center relative;
   }
@@ -17,7 +37,7 @@
   }
 
   &__input:hover ~ &__backdrop {
-    border-color: #616161;
+    @apply border-subdued;
     background-color: #fafafa;
   }
 
@@ -70,7 +90,7 @@
 
   &__number-button:first-child {
     @apply mb-0 rounded-bl-none rounded-br-none;
-    border-top-right-radius: calc( 0.25rem - 0.125rem);
+    border-top-right-radius: calc(0.25rem - 0.125rem);
   }
 
   &__number-button:last-child {
@@ -106,6 +126,20 @@
   }
 
   &__suffix {
-    @apply relative z-20 text-subdued mr-3 ml-2;
+    @apply relative z-20 text-subdued mr-3 ml-1;
   }
+
+  &__clear-button {
+    @apply relative z-20 ml-1 mr-3 opacity-0 invisible;
+    transition: visibility 200ms cubic-bezier(0.42, 0, 0.58, 1), opacity 200ms cubic-bezier(0.42, 0, 0.58, 1);
+  }
+
+  &__clear-button path {
+    fill: #8a8a8a;
+  }
+
+  &:focus-within &__clear-button {
+    @apply opacity-100 visible;
+  }
+
 }
