@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { BadgeProgress, BadgeSize, BadgeTone } from '@/types'
+import {BadgeProgress, BadgeSize, BadgeTone, TextWeight} from '@/types'
 import { computed } from 'vue'
 import PText from '@/components/PText.vue'
 import PIcon from '@/components/PIcon.vue'
@@ -37,7 +37,7 @@ const progressControlMap = computed(() => {
         case 'incomplete':
             return ProgressIncomplete
         default:
-            return null
+            return ProgressIncomplete
     }
 })
 
@@ -55,7 +55,7 @@ const classes = computed(() => [
     },
 ])
 
-const fontWeight = computed(() => (props.tone === 'new' ? 'medium' : undefined))
+const fontWeight = computed<TextWeight>(() => (props.tone === 'new' ? 'medium' : 'regular'))
 </script>
 
 <template>
