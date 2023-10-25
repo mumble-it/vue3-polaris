@@ -50,7 +50,7 @@ export default {
                     100: '#fdfdfd',
                     200: '#f7f7f7',
                     300: '#e3e3e3',
-                    'disabled': '#0000000d',
+                    disabled: '#0000000d',
                 },
                 emphasis: {
                     DEFAULT: '#005bd3',

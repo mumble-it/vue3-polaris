@@ -36,6 +36,8 @@ const progressControlMap = computed(() => {
             return ProgressPartiallyComplete
         case 'incomplete':
             return ProgressIncomplete
+        default:
+            return null
     }
 })
 

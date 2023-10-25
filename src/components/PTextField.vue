@@ -112,17 +112,17 @@ onMounted(() => {
 
 const onInput = debounceFunction((e: InputEvent) => {
     const value = e.target.value
-    emit('update:value', props.type === 'number' ? +value : value )
+    emit('update:value', props.type === 'number' ? +value : value)
 }, props.debounce)
 
 const onFocus = (e: InputEvent) => {
-    if(props.selectTextOnFocus) e.target.select()
+    if (props.selectTextOnFocus) e.target.select()
 }
 
 const onClickButtonNumber = (action: 'add' | 'remove') => {
     action === 'add' ? input.value?.stepUp() : input.value?.stepDown()
     const value = input.value?.value || '0'
-    emit('update:value', props.type === 'number' ? +value : value )
+    emit('update:value', props.type === 'number' ? +value : value)
 }
 
 const onClickClear = () => {
