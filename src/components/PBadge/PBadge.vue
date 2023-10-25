@@ -2,7 +2,9 @@
 import { BadgeProgress, BadgeSize, BadgeTone } from '@/types'
 import { computed } from 'vue'
 import PText from '@/components/PText.vue'
+import PIcon from '@/components/PIcon.vue'
 import { getDefaultAccessibilityLabel } from '@/components/PBadge/utils.ts'
+import { ProgressComplete, ProgressIncomplete, ProgressPartiallyComplete } from '@/components/PBadge/icons'
 
 type Props = {
     tone?: BadgeTone
@@ -26,6 +28,17 @@ const accessibilityLabel = computed(() =>
         : getDefaultAccessibilityLabel(props.progress, props.tone)
 )
 
+const progressControlMap = computed(() => {
+    switch (props.progress) {
+        case 'complete':
+            return ProgressComplete
+        case 'partiallyComplete':
+            return ProgressPartiallyComplete
+        case 'incomplete':
+            return ProgressIncomplete
+    }
+})
+
 const classes = computed(() => [
     'p-badge',
     {
@@ -45,7 +58,13 @@ const fontWeight = computed(() => (props.tone === 'new' ? 'medium' : undefined))
 
 <template>
     <span :class="classes">
-        <PText v-if="accessibilityLabel" as="span" visually-hidden>{{ accessibilityLabel }}</PText>
+        <span v-if="progress && !icon" class="p-badge__icon">
+            <PIcon :icon="progressControlMap" :accessibility-label="accessibilityLabel" />
+        </span>
+        <PText v-else as="span" visually-hidden>{{ accessibilityLabel }}</PText>
+        <span v-if="icon" class="p-badge__icon">
+            <PIcon :icon="icon" />
+        </span>
         <PText as="span" variant="bodySm" :font-weight="fontWeight">
             <slot />
         </PText>

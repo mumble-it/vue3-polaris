@@ -2,6 +2,10 @@
     @apply inline-flex items-center rounded-lg text-subdued;
     background-color: rgba(0,0,0,.06);
 
+    svg path {
+        @apply fill-subdued;
+    }
+
     &--medium {
         @apply px-2 py-0.5;
     }
@@ -12,21 +16,45 @@
 
     &--info {
         @apply bg-info-300 text-info-700;
+
+        svg path {
+            @apply fill-info-400;
+        }
     }
 
     &--success {
         @apply bg-success-200 text-success;
+
+        svg path {
+            @apply fill-success-400;
+        }
     }
 
     &--attention {
         @apply bg-caution-400 text-caution-800;
+
+        svg path {
+            @apply fill-caution-600;
+        }
     }
 
     &--warning {
         @apply bg-warning-300 text-warning-700;
+
+        svg path {
+            @apply fill-warning-600;
+        }
     }
 
     &--critical {
         @apply bg-critical-300 text-critical-700;
+
+        svg path {
+            @apply fill-critical-400;
+        }
+    }
+
+    &__icon {
+        margin: calc(var(--p-space-050)*-1) 0 calc(var(--p-space-050)*-1) calc(var(--p-space-200)*-1);
     }
 }
