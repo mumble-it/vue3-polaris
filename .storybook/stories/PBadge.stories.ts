@@ -113,3 +113,42 @@ export const Critical: Story = {
         template: '<PBadge v-bind="args" tone="critical"> Action required </PBadge>',
     }),
 }
+
+export const Incomplete: Story = {
+    args: {
+        tone: 'attention',
+    },
+    render: (args, { argTypes }) => ({
+        components: { PBadge },
+        setup() {
+            return { args }
+        },
+        template: '<PBadge v-bind="args" tone="attention" progress="incomplete"> Unfulfilled </PBadge>',
+    }),
+}
+
+export const PartiallyComplete: Story = {
+    args: {
+        tone: 'warning',
+    },
+    render: (args, { argTypes }) => ({
+        components: { PBadge },
+        setup() {
+            return { args }
+        },
+        template: '<PBadge v-bind="args" tone="warning" progress="partiallyComplete"> Partially fulfilled </PBadge>',
+    }),
+}
+
+export const Complete: Story = {
+    args: {
+        tone: 'success',
+    },
+    render: (args, { argTypes }) => ({
+        components: { PBadge },
+        setup() {
+            return { args }
+        },
+        template: '<PBadge v-bind="args" tone="success" progress="complete"> Fulfilled </PBadge>',
+    }),
+}
