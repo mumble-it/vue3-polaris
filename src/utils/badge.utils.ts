@@ -1,6 +1,8 @@
-import { BadgeProgress, BadgeProgressValue, BadgeTone, BadgeToneValue } from '@/types'
+import { BadgeProgress } from '@/types'
+import { Tone } from '@/types'
+import { ToneValue as BadgeToneValue } from '@/types'
 
-export function getDefaultAccessibilityLabel(progress?: BadgeProgress, tone?: BadgeTone): string {
+export function getDefaultAccessibilityLabel(progress?: BadgeProgress, tone?: Tone): string {
     let progressLabel = ''
     let toneLabel = ''
 
@@ -9,13 +11,13 @@ export function getDefaultAccessibilityLabel(progress?: BadgeProgress, tone?: Ba
     }
 
     switch (progress) {
-        case BadgeProgressValue.Incomplete:
+        case 'incomplete':
             progressLabel = 'Incomplete'
             break
-        case BadgeProgressValue.PartiallyComplete:
+        case 'partiallyComplete':
             progressLabel = 'Partially complete'
             break
-        case BadgeProgressValue.Complete:
+        case 'complete':
             progressLabel = 'Complete'
             break
     }

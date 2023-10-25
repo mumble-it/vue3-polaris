@@ -1,13 +1,13 @@
 <script setup lang="ts">
-import {BadgeProgress, BadgeSize, BadgeTone, TextWeight} from '@/types'
+import { BadgeProgress, BadgeSize, TextWeight, Tone } from '@/types'
 import { computed } from 'vue'
 import PText from '@/components/PText.vue'
 import PIcon from '@/components/PIcon.vue'
-import { getDefaultAccessibilityLabel } from '@/components/PBadge/utils.ts'
+import { getDefaultAccessibilityLabel } from '@/utils/badge.utils.ts'
 import { ProgressComplete, ProgressIncomplete, ProgressPartiallyComplete } from '@/components/PBadge/icons'
 
 type Props = {
-    tone?: BadgeTone
+    tone?: Tone
     progress?: BadgeProgress
     icon?: any
     size?: BadgeSize
