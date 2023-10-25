@@ -21,6 +21,25 @@
     @apply bg-surface-disabled;
   }
 
+  &--error &__input ~ &__backdrop,
+  &--error &__input:hover ~ &__backdrop,
+  &--error &__input:focus ~ &__backdrop
+  {
+    @apply bg-critical-200 border-critical-700;
+  }
+
+  &__error {
+    @apply flex items-center mt-1 text-critical-700;
+  }
+
+  &__error-icon svg {
+    @apply p-0.5 ml-0.5 mr-0.5;
+  }
+
+  &__error-icon path {
+    @apply fill-critical-700;
+  }
+
   &__input-container {
     @apply flex items-center relative;
   }
@@ -71,7 +90,7 @@
     @apply invisible;
   }
 
-  &--number:hover &__number-actions,
+  &--number &__input:hover ~ &__number-actions,
   &--number &__input:focus ~ &__number-actions {
     @apply visible;
   }
@@ -142,4 +161,15 @@
     @apply opacity-100 visible;
   }
 
+  &__connected {
+    @apply flex items-center;
+  }
+
+  &__item:not(:first-child) {
+    @apply ml-1;
+  }
+
+  &__item--primary {
+    @apply flex-1;
+  }
 }

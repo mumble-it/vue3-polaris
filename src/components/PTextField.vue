@@ -4,7 +4,7 @@ import { countDecimals, debounce as debounceFunction, uid } from '@/utils'
 import { Action, TextFieldType } from '@/types'
 import PIcon from '@/components/PIcon.vue'
 // @ts-ignore
-import { CaretDownMinor, CaretUpMinor, CircleCancelMinor } from '@/icons'
+import { CaretDownMinor, CaretUpMinor, CircleCancelMinor, CircleInformationMajor } from '@/icons'
 import PButton from '@/components/PButton.vue'
 import PText from '@/components/PText.vue'
 
@@ -16,6 +16,7 @@ type Props = {
     debounce?: number
     decimals?: number
     disabled?: boolean
+    error?: string
     helpText?: string
     label?: string
     labelHidden?: boolean
@@ -41,6 +42,7 @@ const props = withDefaults(defineProps<Props>(), {
     debounce: undefined,
     decimals: undefined,
     disabled: undefined,
+    error: undefined,
     helpText: undefined,
     labelHidden: false,
     label: undefined,
@@ -65,6 +67,9 @@ const emit = defineEmits<{
 const slots = useSlots()
 const hasPrefix = computed(() => !!slots.prefix)
 const hasSuffix = computed(() => !!slots.suffix)
+const hasConnected = computed(() => !!slots.connectedLeft || !!slots.connectedRight)
+const hasConnectedLeft = computed(() => !!slots.connectedLeft)
+const hasConnectedRight = computed(() => !!slots.connectedRight)
 
 watch(
     () => props.value,
@@ -103,6 +108,7 @@ const classes = computed(() => [
         'p-text-field--number': props.type === 'number',
         'p-text-field--disabled': props.disabled,
         'p-text-field--read-only': props.readOnly,
+        'p-text-field--error': props.error,
     },
 ])
 
@@ -155,58 +161,73 @@ const onClickClear = () => {
                 <PText> {{ action.content }} </PText>
             </PButton>
         </div>
-        <div class="p-text-field__input-container">
-            <div v-if="hasPrefix" :id="`text-field-prefix-${internalId}`" class="p-text-field__prefix">
-                <slot name="prefix" />
+        <div :class="{ 'p-text-field__connected': hasConnected }">
+            <div class="p-text-field__item" v-if="hasConnectedLeft">
+                <slot name="connectedLeft" />
             </div>
-            <Component
-                :is="multiline ? 'textarea' : 'input'"
-                :id="internalId"
-                ref="input"
-                class="p-text-field__input"
-                :type="type"
-                :value="value"
-                :name="name"
-                :placeholder="placeholder"
-                :disabled="disabled"
-                :autocomplete="autocomplete"
-                :maxlength="max"
-                :step="step"
-                :multiline="multiline ? 'true' : undefined"
-                :readonly="readOnly"
-                :required="required"
-                :rows="multiline"
-                :aria-describedby="helpText ? `text-field-help-text-${internalId}` : undefined"
-                :aria-labelledby="label ? `text-field-label-${internalId}` : undefined"
-                :aria-multiline="multiline ? 'true' : undefined"
-                @input="onInput"
-                @focus="onFocus"
-            />
-            <div v-if="hasSuffix" :id="`text-field-suffix-${internalId}`" class="p-text-field__suffix">
-                <slot name="suffix" />
-            </div>
-            <button v-if="clearButton" type="button" class="p-text-field__clear-button" @click="onClickClear">
-                <PIcon :icon="CircleCancelMinor" />
-            </button>
-            <div v-if="type === 'number'" class="p-text-field__number-actions" aria-hidden="true">
-                <div
-                    role="button"
-                    class="p-text-field__number-button"
-                    tabindex="-1"
-                    @click="onClickButtonNumber('add')"
-                >
-                    <PIcon class="p-text-field__number-icon" :icon="CaretUpMinor" />
+            <div :class="{ 'p-text-field__item p-text-field__item--primary': hasConnected }">
+                <div class="p-text-field__input-container">
+                    <div v-if="hasPrefix" :id="`text-field-prefix-${internalId}`" class="p-text-field__prefix">
+                        <slot name="prefix" />
+                    </div>
+                    <Component
+                        :is="multiline ? 'textarea' : 'input'"
+                        :id="internalId"
+                        ref="input"
+                        class="p-text-field__input"
+                        :type="type"
+                        :value="value"
+                        :name="name"
+                        :placeholder="placeholder"
+                        :disabled="disabled"
+                        :autocomplete="autocomplete"
+                        :maxlength="max"
+                        :step="step"
+                        :multiline="multiline ? 'true' : undefined"
+                        :readonly="readOnly"
+                        :required="required"
+                        :rows="multiline"
+                        :aria-describedby="error ? `text-field-error-${internalId}`: helpText ? `text-field-help-text-${internalId}` : undefined"
+                        :aria-labelledby="label ? `text-field-label-${internalId}` : undefined"
+                        :aria-multiline="multiline ? 'true' : undefined"
+                        @input="onInput"
+                        @focus="onFocus"
+                    />
+                    <div v-if="hasSuffix" :id="`text-field-suffix-${internalId}`" class="p-text-field__suffix">
+                        <slot name="suffix" />
+                    </div>
+                    <button v-if="clearButton" type="button" class="p-text-field__clear-button" @click="onClickClear">
+                        <PIcon :icon="CircleCancelMinor" />
+                    </button>
+                    <div v-if="type === 'number'" class="p-text-field__number-actions" aria-hidden="true">
+                        <div
+                            role="button"
+                            class="p-text-field__number-button"
+                            tabindex="-1"
+                            @click="onClickButtonNumber('add')"
+                        >
+                            <PIcon class="p-text-field__number-icon" :icon="CaretUpMinor" />
+                        </div>
+                        <div
+                            role="button"
+                            class="p-text-field__number-button"
+                            tabindex="-1"
+                            @click="onClickButtonNumber('remove')"
+                        >
+                            <PIcon class="p-text-field__number-icon" :icon="CaretDownMinor" />
+                        </div>
+                    </div>
+                    <div class="p-text-field__backdrop" />
+
                 </div>
-                <div
-                    role="button"
-                    class="p-text-field__number-button"
-                    tabindex="-1"
-                    @click="onClickButtonNumber('remove')"
-                >
-                    <PIcon class="p-text-field__number-icon" :icon="CaretDownMinor" />
-                </div>
             </div>
-            <div class="p-text-field__backdrop" />
+            <div class="p-text-field__item" v-if="hasConnectedLeft">
+                <slot name="connectedRight" />
+            </div>
+        </div>
+        <div v-if="error" :id="`text-field-error-${internalId}`" class="p-text-field__error">
+            <PIcon class="p-text-field__error-icon" :icon="CircleInformationMajor" />
+            {{ error }}
         </div>
     </div>
 </template>
