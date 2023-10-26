@@ -145,7 +145,16 @@
   }
 
   &--tertiary {
-    @apply shadow-none;
+    @apply shadow-none bg-transparent border-transparent;
+
+    &.p-button--icon-only {
+      margin: calc(-1 * .25rem);
+    }
+  }
+
+  &--tertiary:hover {
+    @apply bg-transparent;
+    background-color: rgba(0,0,0,.05);
   }
 
   &--tertiary:focus-visible {
@@ -228,7 +237,7 @@
   }
 
   &--icon-only {
-    @apply pl-1.5 pr-1.5;
+    @apply pl-1.5 pr-1.5 lg:p-1;
   }
 
   &--icon-only &__icon {
