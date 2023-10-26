@@ -2,14 +2,25 @@ import type {Meta, StoryObj} from '@storybook/vue3';
 
 import PButton from "../../src/components/PButton.vue";
 import PTextField from "../../src/components/PTextField.vue";
+import {TEXT_FIELD_TYPES} from "../../src/constants/text-field.constants";
 
 
 const meta = {
     title: 'Components/PTextField',
     component: PTextField,
     tags: ['autodocs'],
+    args: {
+        type: 'text',
+    },
     argTypes: {
-        // size: { control: 'select', options: ['small', 'large']}
+        autocomplete: { control: 'text' },
+        inputMode: { control: 'text' },
+        type: { control: 'select', options: TEXT_FIELD_TYPES},
+        value: {
+            control: 'text', table: {
+                type: {summary: 'string | number | null'}
+            }
+        },
         'onUpdate:value': {action: 'update:value'},
     },
 } satisfies Meta<typeof PTextField>;
@@ -20,7 +31,7 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
     args: {
         label: 'Store Name',
-        value: 'Mumble',
+        value: 'Mumble'
     },
     render: (args) => ({
         components: {PTextField},
@@ -126,6 +137,21 @@ export const Error: Story = {
     args: {
         label: 'StoreName',
         error: 'Store name is required',
+    },
+    render: (args) => ({
+        components: {PTextField},
+        setup() {
+            return {args}
+        },
+        template: '<PTextField v-bind="args" />'
+    })
+};
+
+export const HelpText: Story = {
+    args: {
+        label: 'Account email',
+        placeholder: 'mu@mb.le',
+        helpText: 'We’ll use this address if we need to contact you about your account.',
     },
     render: (args) => ({
         components: {PTextField},

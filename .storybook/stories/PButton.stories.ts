@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from '@storybook/vue3';
 
 import PButton from '../../src/components/PButton.vue';
 import PText from '../../src/components/PText.vue';
+import { SearchMinor } from '../../src/icons'
 
 // More on how to set up stories at: https://storybook.js.org/docs/vue/writing-stories/introduction
 const meta = {
@@ -30,11 +31,11 @@ type Story = StoryObj<typeof meta>;
  */
 export const Default: Story = {
   render: (args, { argTypes }) => ({
-    components: {PButton},
+    components: {PButton, PText},
     setup() {
       return { args }
     },
-    template: '<PButton v-bind="args"> Add product </PButton>'
+    template: '<PButton v-bind="args"><PText> Add product </PText></PButton>'
   })
 };
 
@@ -58,11 +59,11 @@ export const Primary: Story = {
     variant: 'primary'
   },
   render: (args, { argTypes }) => ({
-    components: {PButton},
+    components: {PButton, PText},
     setup() {
       return { args }
     },
-    template: '<PButton v-bind="args"> Save theme </PButton>'
+    template: '<PButton v-bind="args"><PText> Save theme </PText></PButton>'
   })
 };
 
@@ -72,11 +73,11 @@ export const PrimarySuccess: Story = {
     tone: 'success'
   },
   render: (args, { argTypes }) => ({
-    components: {PButton},
+    components: {PButton, PText},
     setup() {
       return { args }
     },
-    template: '<PButton v-bind="args"> Save </PButton>'
+    template: '<PButton v-bind="args"> <PText>Save</PText> </PButton>'
   })
 };
 
@@ -86,11 +87,11 @@ export const PrimaryCritical: Story = {
     tone: 'critical'
   },
   render: (args, { argTypes }) => ({
-    components: {PButton},
+    components: {PButton, PText},
     setup() {
       return { args }
     },
-    template: '<PButton v-bind="args"> Remove </PButton>'
+    template: '<PButton v-bind="args"> <PText>Remove</PText> </PButton>'
   })
 };
 
@@ -99,11 +100,11 @@ export const Plain: Story = {
     variant: 'plain'
   },
   render: (args, { argTypes }) => ({
-    components: {PButton},
+    components: {PButton, PText},
     setup() {
       return { args }
     },
-    template: '<PButton v-bind="args"> View shipping settings </PButton>'
+    template: '<PButton v-bind="args"><PText> View shipping settings </PText></PButton>'
   })
 };
 
@@ -113,11 +114,11 @@ export const PlainCritical: Story = {
     tone: 'critical',
   },
   render: (args, { argTypes }) => ({
-    components: {PButton},
+    components: {PButton, PText},
     setup() {
       return { args }
     },
-    template: '<PButton v-bind="args"> Remove </PButton>'
+    template: '<PButton v-bind="args"> <PText>Remove</PText> </PButton>'
   })
 };
 
@@ -126,11 +127,11 @@ export const Tertiary: Story = {
     variant: 'tertiary'
   },
   render: (args, { argTypes }) => ({
-    components: {PButton},
+    components: {PButton, PText},
     setup() {
       return { args }
     },
-    template: '<PButton v-bind="args"> View shipping settings </PButton>'
+    template: '<PButton v-bind="args"><PText> View shipping settings </PText></PButton>'
   })
 };
 
@@ -139,11 +140,11 @@ export const FullWidth: Story = {
     fullWidth: true
   },
   render: (args, { argTypes }) => ({
-    components: {PButton},
+    components: {PButton, PText},
     setup() {
       return { args }
     },
-    template: '<PButton v-bind="args"> Add customer </PButton>'
+    template: '<PButton v-bind="args"><PText> Add customer </PText></PButton>'
   })
 };
 
@@ -152,10 +153,23 @@ export const Loading: Story = {
     loading: true
   },
   render: (args, { argTypes }) => ({
-    components: {PButton},
+    components: {PButton, PText},
     setup() {
       return { args }
     },
-    template: '<PButton v-bind="args"> Loading </PButton>'
+    template: '<PButton v-bind="args"> <PText>Loading</PText> </PButton>'
+  })
+};
+
+export const Icon: Story = {
+  args: {
+    icon: SearchMinor
+  },
+  render: (args, { argTypes }) => ({
+    components: {PButton, PText},
+    setup() {
+      return { args }
+    },
+    template: '<PButton v-bind="args"> <PText>Search</PText> </PButton>'
   })
 };

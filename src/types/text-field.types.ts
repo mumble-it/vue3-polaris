@@ -1,14 +1,19 @@
 export type TextFieldType =
-    | 'text'
+    'text'
     | 'email'
-    | 'date'
-    | 'hidden'
     | 'number'
+    | 'integer'
     | 'password'
     | 'search'
     | 'tel'
-    | 'time'
     | 'url'
+    | 'date'
+    | 'datetime-local'
+    | 'month'
+    | 'time'
+    | 'week'
+    | 'currency';
+
 export type TextFieldAutocomplete =
     | 'on'
     | 'name'
@@ -23,3 +28,5 @@ export type TextFieldAutocomplete =
     | 'organization-title'
     | 'tel'
     | string
+
+export type TextFieldInputMode = 'none' | 'text' | 'decimal' | 'numeric' | 'tel' | 'search' | 'email' | 'url';

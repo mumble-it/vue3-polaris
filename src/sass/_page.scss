@@ -1,0 +1,24 @@
+.p-page {
+  @apply mx-auto p-0;
+  max-width: 62.375rem;
+  
+  @screen sm {
+    @apply px-6;
+  }
+
+  &__header {
+    @apply p-space-400;
+
+    @screen sm {
+      @apply pl-0 pr-0;
+    }
+
+    @screen md {
+      @apply pt-6 pb-6;
+    }
+  }
+
+  &__header-top {
+    @apply flex justify-between items-center;
+  }
+}

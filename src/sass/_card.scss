@@ -3,6 +3,7 @@
   box-shadow: 0 0.0625rem 0 0 rgba(26,26,26,.07);
 
   &__container {
+    @apply rounded-xl;
     box-shadow: 0.0625rem 0 0 0 rgba(0,0,0,.13) inset,-0.0625rem 0 0 0 rgba(0,0,0,.13) inset,0 -0.0625rem 0 0 rgba(0,0,0,.17) inset,0 0.0625rem 0 0 hsla(0,0%,80%,.5) inset;
   }
 }

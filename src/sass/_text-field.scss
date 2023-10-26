@@ -29,15 +29,12 @@
   }
 
   &__error {
-    @apply flex items-center mt-1 text-critical-700;
+    @apply mt-1;
   }
 
-  &__error-icon svg {
-    @apply p-0.5 ml-0.5 mr-0.5;
-  }
-
-  &__error-icon path {
-    @apply fill-critical-700;
+  &--required-indicator &__label:after {
+    content: '*';
+    @apply text-critical-700 ml-1;
   }
 
   &__input-container {
@@ -171,5 +168,14 @@
 
   &__item--primary {
     @apply flex-1;
+  }
+
+  &__character-count {
+    @apply text-subdued z-20 mr-3 ml-1 pointer-events-none text-right;
+    line-height: 1.5rem;
+  }
+
+  &__help-text {
+    @apply mt-1;
   }
 }

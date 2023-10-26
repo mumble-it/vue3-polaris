@@ -25,10 +25,10 @@ copy the config of tailwind and install it + import:
 - [ ] Tabs - SB
 - [ ] Banner - SB
 - [x] Text
-- [ ] Badge - SB
+- [x] Badge - SB
 - [ ] Dropdown
 - [ ] Select
-- [ ] Input
+- [x] Text Field
 - [ ] Checkbox
 - [X] Icon
 - [ ] Color

@@ -1,0 +1,11 @@
+.p-inline-error {
+  @apply flex items-center text-critical-700;
+
+  &__icon svg {
+    @apply p-0.5 ml-0.5 mr-0.5;
+  }
+
+  &__icon path {
+    @apply fill-critical-700;
+  }
+}

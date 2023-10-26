@@ -2,6 +2,7 @@ import type {Meta, StoryObj} from '@storybook/vue3';
 
 import PCard from '../../src/components/PCard.vue';
 import {SPACES, BACKGROUNDS} from "../../src/constants";
+import {PText} from "../../src";
 
 const meta = {
     title: 'Components/PCard',
@@ -25,10 +26,10 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
     render: (args) => ({
-        components: {PCard},
+        components: {PCard, PText},
         setup() {
             return {args}
         },
-        template: '<PCard v-bind="args"> ciao </PCard>'
+        template: '<PCard v-bind="args"> <PText> Content inside a card </PText></PCard>'
     })
 };

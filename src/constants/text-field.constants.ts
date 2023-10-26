@@ -1,0 +1,16 @@
+export const TEXT_FIELD_TYPES = [
+    'text',
+    'email',
+    'number',
+    'integer',
+    'password',
+    'search',
+    'tel',
+    'url',
+    'date',
+    'datetime-local',
+    'month',
+    'time',
+    'week',
+    'currency',
+]

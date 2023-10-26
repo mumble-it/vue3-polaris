@@ -1,8 +1,8 @@
 .p-button {
   @apply inline-block bg-surface text-sm rounded-lg relative;
   line-height: 1rem;
-  box-shadow: inset 0 -0.0625rem 0 #b5b5b5,inset -0.0625rem 0 0 #e3e3e3,inset 0.0625rem 0 0 #e3e3e3,inset 0 0.0625rem 0 #e3e3e3;
-  transition: background-color 75ms cubic-bezier(0.19,0.91,0.38,1),box-shadow 75ms cubic-bezier(0.19,0.91,0.38,1);
+  box-shadow: inset 0 -0.0625rem 0 #b5b5b5, inset -0.0625rem 0 0 #e3e3e3, inset 0.0625rem 0 0 #e3e3e3, inset 0 0.0625rem 0 #e3e3e3;
+  transition: background-color 75ms cubic-bezier(0.19, 0.91, 0.38, 1), box-shadow 75ms cubic-bezier(0.19, 0.91, 0.38, 1);
 
   &:hover {
     @apply bg-surface-200;
@@ -11,7 +11,7 @@
 
   &:active {
     @apply bg-surface-200;
-    box-shadow: 0 0.125rem 0.0625rem 0 rgba(26,26,26,.2) inset,0.0625rem 0 0.0625rem 0 rgba(26,26,26,.12) inset,-0.0625rem 0 0.0625rem 0 rgba(26,26,26,.12) inset;
+    box-shadow: 0 0.125rem 0.0625rem 0 rgba(26, 26, 26, .2) inset, 0.0625rem 0 0.0625rem 0 rgba(26, 26, 26, .12) inset, -0.0625rem 0 0.0625rem 0 rgba(26, 26, 26, .12) inset;
   }
 
   &:focus-visible {
@@ -29,7 +29,7 @@
 
   &--plain {
     @apply bg-transparent shadow-none border-0 text-emphasis;
-    margin: calc(calc(2.25rem - 1.25rem - 0.125rem )/2*-1) calc(0.75rem*-1);
+    margin: calc(calc(2.25rem - 1.25rem - 0.125rem) / 2 * -1) calc(0.75rem * -1);
   }
 
   &--plain:hover {
@@ -75,10 +75,10 @@
   &--primary:before {
     content: "";
     @apply absolute left-0 right-0 top-0 bottom-0;
-    background: linear-gradient(180deg,hsla(0,0%,100%,.07) 80%,hsla(0,0%,100%,.15));
-    box-shadow: 0 0.125rem 0 0 hsla(0,0%,100%,.2) inset,0.125rem 0 0 0 hsla(0,0%,100%,.2) inset,-0.125rem 0rem 0rem 0rem hsla(0,0%,100%,.2) inset,0 -0.0625rem 0 0.0625rem #000 inset,0 0.0625rem 0 0 #000 inset;
+    background: linear-gradient(180deg, hsla(0, 0%, 100%, .07) 80%, hsla(0, 0%, 100%, .15));
+    box-shadow: 0 0.125rem 0 0 hsla(0, 0%, 100%, .2) inset, 0.125rem 0 0 0 hsla(0, 0%, 100%, .2) inset, -0.125rem 0rem 0rem 0rem hsla(0, 0%, 100%, .2) inset, 0 -0.0625rem 0 0.0625rem #000 inset, 0 0.0625rem 0 0 #000 inset;
     border-radius: 0.5625rem;
-    transition: opacity 75ms cubic-bezier(.19,.91,.38,1);
+    transition: opacity 75ms cubic-bezier(.19, .91, .38, 1);
   }
 
   &--primary:hover {
@@ -92,7 +92,7 @@
 
   &--primary:active:before {
     opacity: 1;
-    background: linear-gradient(180deg,hsla(0,0%,100%,.1),hsla(0,0%,100%,0));
+    background: linear-gradient(180deg, hsla(0, 0%, 100%, .1), hsla(0, 0%, 100%, 0));
     box-shadow: 0 0.1875rem 0 0 #000 inset;
   }
 
@@ -126,7 +126,7 @@
 
   &--critical.p-btn--primary:before {
     @apply border-inherit bg-none bottom-0;
-    box-shadow: 0 0.0625rem 0 0 hsla(0,0%,100%,.48) inset,-0.0625rem 0 0 0 hsla(0,0%,100%,.2) inset,0.0625rem 0 0 0 hsla(0,0%,100%,.2) inset,0 -0.09375rem 0 0 rgba(0,0,0,.25) inset;
+    box-shadow: 0 0.0625rem 0 0 hsla(0, 0%, 100%, .48) inset, -0.0625rem 0 0 0 hsla(0, 0%, 100%, .2) inset, 0.0625rem 0 0 0 hsla(0, 0%, 100%, .2) inset, 0 -0.09375rem 0 0 rgba(0, 0, 0, .25) inset;
     left: 0.03125rem;
     right: 0.03125rem;
     top: 0.03125rem;
@@ -137,7 +137,7 @@
   }
 
   &--critical.p-btn--primary:active {
-    box-shadow: 0 0.125rem 0 0 rgba(0,0,0,.6) inset,0.0625rem 0 0.0625rem 0 rgba(0,0,0,.2) inset,-0.0625rem 0 0.0625rem 0 rgba(0,0,0,.2) inset;
+    box-shadow: 0 0.125rem 0 0 rgba(0, 0, 0, .6) inset, 0.0625rem 0 0.0625rem 0 rgba(0, 0, 0, .2) inset, -0.0625rem 0 0.0625rem 0 rgba(0, 0, 0, .2) inset;
   }
 
   &--critical.p-btn--primary:active:before {
@@ -149,17 +149,17 @@
   }
 
   &--tertiary:focus-visible {
-    box-shadow: inset 0 -0.0625rem 0 #b5b5b5,inset -0.0625rem 0 0 #e3e3e3,inset 0.0625rem 0 0 #e3e3e3,inset 0 0.0625rem 0 #e3e3e3;
+    box-shadow: inset 0 -0.0625rem 0 #b5b5b5, inset -0.0625rem 0 0 #e3e3e3, inset 0.0625rem 0 0 #e3e3e3, inset 0 0.0625rem 0 #e3e3e3;
   }
 
   &--tertiary:active {
-    box-shadow: 0 0.125rem 0.0625rem 0 rgba(26,26,26,.2) inset,0.0625rem 0 0.0625rem 0 rgba(26,26,26,.12) inset,-0.0625rem 0 0.0625rem 0 rgba(26,26,26,.12) inset;
+    box-shadow: 0 0.125rem 0.0625rem 0 rgba(26, 26, 26, .2) inset, 0.0625rem 0 0.0625rem 0 rgba(26, 26, 26, .12) inset, -0.0625rem 0 0.0625rem 0 rgba(26, 26, 26, .12) inset;
   }
 
   &__content {
-    @apply block;
+    @apply flex items-center justify-center;
     font-weight: 500;
-    transition: transform 75ms cubic-bezier(.19,.91,.38,1);
+    transition: transform 75ms cubic-bezier(.19, .91, .38, 1);
   }
 
   &:active &__content {
@@ -179,8 +179,7 @@
   }
 
   &--plain:active &__content,
-  &--tertiary:active &__content
-  {
+  &--tertiary:active &__content {
     @apply transform-none;
   }
 
@@ -191,12 +190,12 @@
   &--disabled {
     @apply transition-none shadow-none pointer-events-none text-disabled #{!important};
     border-color: #ebebeb !important;
-    background: rgba(0,0,0,.05) !important;
+    background: rgba(0, 0, 0, .05) !important;
   }
 
   &--primary.p-btn--disabled {
     @apply text-white #{!important};
-    background: rgba(0,0,0,.17) !important;
+    background: rgba(0, 0, 0, .17) !important;
   }
 
   &--tertiary.p-btn--disabled,
@@ -211,7 +210,7 @@
   &--loading {
     @apply transition-none shadow-none pointer-events-none text-transparent #{!important};
     border-color: #ebebeb !important;
-    background: rgba(0,0,0,.05) !important;
+    background: rgba(0, 0, 0, .05) !important;
   }
 
   &--loading:before {
@@ -220,11 +219,27 @@
 
   &__spinner {
     @apply absolute top-1/2 left-1/2;
-    margin-top: calc((1.25rem/2)*-1);
-    margin-left: calc((1.25rem/2)*-1);
+    margin-top: calc((1.25rem / 2) * -1);
+    margin-left: calc((1.25rem / 2) * -1);
   }
 
   &__spinner .p-spinner svg {
-    fill: rgba(0,0,0,.17);
+    fill: rgba(0, 0, 0, .17);
+  }
+
+  &--icon-only {
+    @apply pl-1.5 pr-1.5;
+  }
+
+  &--icon-only &__icon {
+    @apply ml-0;
+  }
+
+  &__icon {
+    margin-left: calc((0.25rem) * -1);
+  }
+
+  &__icon + *:not(&__icon) {
+    @apply ml-0.5;
   }
 }
