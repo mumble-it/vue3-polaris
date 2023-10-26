@@ -1,2 +1,4 @@
+import { Size } from '@/types'
+
 export type BadgeProgress = 'incomplete' | 'partiallyComplete' | 'complete'
-export type BadgeSize = 'medium' | 'large'
+export type BadgeSize = Extract<Size, 'medium' | 'large'>

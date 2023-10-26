@@ -1,6 +1,6 @@
-import { Action } from '@/types/common.types.ts'
+import { Action, Tone } from '@/types'
 
-export type BannerTone = 'success' | 'info' | 'warning' | 'critical'
+export type BannerTone = Extract<Tone, 'success' | 'info' | 'warning' | 'critical'>
 
 export interface BannerDisableableAction extends Action {
     disabled?: boolean
