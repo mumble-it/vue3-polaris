@@ -66,9 +66,16 @@
         padding-inline-start: 1rem;
     }
 
-
     &__header-stack {
         @apply flex justify-between items-center flex-nowrap gap-2;
+    }
+
+    &__button-box {
+        @apply bg-info-500 rounded-lg;
+        padding-block-end: .25rem;
+        padding-block-start: .25rem;
+        padding-inline-end: .25rem;
+        padding-inline-start: .25rem;
     }
 
     &__body-stack {

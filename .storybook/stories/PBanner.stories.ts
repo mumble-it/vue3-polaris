@@ -12,13 +12,13 @@ const meta = {
     argTypes: {
         tone: { control: 'select', options: ['info', 'success', 'warning', 'critical'] },
         title: { control: 'text' },
-        hideIcon: { control: 'booolean' },
+        hideIcon: { control: 'boolean' },
         stopAnnouncements: { control: 'boolean' },
         dismissible: { control: 'boolean' },
     },
     args: {
-        tone: 'info',
-        title: 'USPS has updated their rates\n',
+        tone: 'warning',
+        title: 'USPS has updated their rates',
         dismissible: true,
         action: { content: 'Update rates', onAction: () => {} },
         secondaryAction: { content: 'Learn more', onAction: () => {} },

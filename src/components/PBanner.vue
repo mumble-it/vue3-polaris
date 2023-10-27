@@ -24,7 +24,7 @@ const props = withDefaults(defineProps<Props>(), {
     tone: undefined,
     action: undefined,
     secondaryAction: undefined,
-    dismissible: false,
+    dismissible: true,
     stopAnnouncements: false,
 })
 
@@ -33,7 +33,7 @@ const emit = defineEmits<{
 }>()
 
 const slots = useSlots()
-const hasContent = computed(() => !!slots.default || props.action || props.secondaryAction)
+const hasContent = computed(() => props.tone && (!!slots.default || props.action || props.secondaryAction))
 
 const role = computed(() => (props.tone === 'warning' || props.tone === 'critical' ? 'alert' : 'status'))
 const ariaLive = computed(() => (props.stopAnnouncements ? 'off' : 'polite'))
@@ -70,7 +70,7 @@ const toneControlMap = computed(() => {
         case 'info':
             return InfoMinor
         default:
-            return RiskMinor
+            return InfoMinor
     }
 })
 
@@ -108,7 +108,14 @@ const onDismiss = () => {
             <div class="p-banner__stack">
                 <div :class="classBannerHeader">
                     <div class="p-banner__header-stack">
-                        <div class="p-banner__title">
+                        <div v-if="!tone" class="p-banner__title">
+                            <div class="p-banner__button-box">
+                                <PIcon v-if="!hideIcon" :icon="toneControlMap" />
+                            </div>
+                            <slot />
+                        </div>
+
+                        <div v-else class="p-banner__title">
                             <PIcon v-if="!hideIcon" :icon="toneControlMap" />
                             <PText as="h2" variant="headingSm">{{ title }}</PText>
                         </div>
