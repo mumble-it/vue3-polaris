@@ -19,6 +19,22 @@
   }
 
   &__header-top {
-    @apply flex justify-between items-center;
+    @apply flex items-center;
+  }
+
+  &__action-menu {
+    @apply flex w-full justify-end;
+  }
+
+  &__action-primary {
+    @apply ml-1;
+  }
+
+  &__action-menu-icon {
+    @apply bg-surface-300;
+  }
+
+  &__action-menu-icon:hover {
+    background-color: #d4d4d4;
   }
 }

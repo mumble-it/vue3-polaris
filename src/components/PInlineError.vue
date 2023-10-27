@@ -14,7 +14,7 @@ withDefaults(defineProps<Props>(), {
 
 <template>
     <div class="p-inline-error">
-        <PIcon class="p-inline-error__icon" :icon="CircleInformationMajor"/>
+        <PIcon class="p-inline-error__icon" :source="CircleInformationMajor"/>
         {{ message }}
     </div>
 </template>

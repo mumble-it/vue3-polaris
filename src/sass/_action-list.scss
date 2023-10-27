@@ -1,0 +1,44 @@
+.p-action-list {
+
+  &__search-wrapper {
+    @apply pt-2 pl-2 pr-2;
+  }
+
+  &__list-wrapper {
+    @apply p-1.5;
+  }
+
+  &__list {
+    @apply flex flex-col gap-1;
+  }
+
+  &__item {
+    @apply flex relative items-center w-full p-1.5 rounded-lg text-left;
+    min-height: 2rem;
+    cursor: pointer;
+    border-top: 0.0625rem solid transparent;
+  }
+
+  &__item:hover {
+    background-color: #f1f1f1;
+    outline: 0.125rem solid transparent;
+  }
+
+  &__item:focus {
+    outline: none;
+  }
+
+  &__item:active {
+    background-color: #ebebeb !important;
+  }
+
+  &__item:focus-visible {
+    @apply bg-white;
+    outline: 0.125rem solid #005bd3;
+  }
+
+  &__text {
+    @apply min-w-0 max-w-full;
+    flex: 1 1 auto;
+  }
+}

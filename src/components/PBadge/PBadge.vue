@@ -61,11 +61,11 @@ const fontWeight = computed<TextWeight>(() => (props.tone === 'new' ? 'medium' :
 <template>
     <span :class="classes">
         <span v-if="progress && !icon" class="p-badge__icon">
-            <PIcon :icon="progressControlMap" :accessibility-label="accessibilityLabel" />
+            <PIcon :source="progressControlMap" :accessibility-label="accessibilityLabel" />
         </span>
         <PText v-else as="span" visually-hidden>{{ accessibilityLabel }}</PText>
         <span v-if="icon" class="p-badge__icon">
-            <PIcon :icon="icon" />
+            <PIcon :source="icon" />
         </span>
         <PText as="span" variant="bodySm" :font-weight="fontWeight">
             <slot />

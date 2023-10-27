@@ -15,15 +15,15 @@
     }
 
     &--info {
-        @apply bg-info-300 text-info-700;
+        @apply bg-info-200 text-info-800;
 
         svg path {
-            @apply fill-info-400;
+            @apply fill-info-300;
         }
     }
 
     &--success {
-        @apply bg-success-200 text-success;
+        @apply bg-success-100 text-success;
 
         svg path {
             @apply fill-success-400;
@@ -31,23 +31,23 @@
     }
 
     &--attention {
-        @apply bg-caution-400 text-caution-800;
+        @apply bg-caution-200 text-caution-800;
 
         svg path {
-            @apply fill-caution-600;
+            @apply fill-caution;
         }
     }
 
     &--warning {
-        @apply bg-warning-300 text-warning-700;
+        @apply bg-warning-200 text-warning-800;
 
         svg path {
-            @apply fill-warning-600;
+            @apply fill-warning;
         }
     }
 
     &--critical {
-        @apply bg-critical-300 text-critical-700;
+        @apply bg-critical-300 text-critical-800;
 
         svg path {
             @apply fill-critical-400;

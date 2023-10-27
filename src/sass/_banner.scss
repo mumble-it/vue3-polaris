@@ -31,7 +31,7 @@
         border-start-start-radius: .75rem;
 
         &--info {
-            @apply bg-info-500;
+            @apply bg-info-300;
             color: #002133;
         }
 
@@ -45,7 +45,7 @@
         }
 
         &--warning {
-            @apply bg-warning-500;
+            @apply bg-warning;
             color: #002133;
         }
 
@@ -71,7 +71,7 @@
     }
 
     &__button-box {
-        @apply bg-info-500 rounded-lg;
+        @apply bg-info-300 rounded-lg;
         padding-block-end: .25rem;
         padding-block-start: .25rem;
         padding-inline-end: .25rem;

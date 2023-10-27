@@ -27,6 +27,7 @@ copy the config of tailwind and install it + import:
 - [x] Text
 - [x] Badge - SB
 - [ ] Dropdown
+- [ ] Dropzone Media
 - [ ] Select
 - [x] Text Field
 - [ ] Checkbox

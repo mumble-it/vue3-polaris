@@ -1,7 +1,58 @@
 .p-icon {
   @apply block h-5 w-5 max-h-full max-w-full m-auto;
 
-  path {
+  &--base path {
     @apply fill-font;
+  }
+  &--subdued path {
+    fill: #8a8a8a;
+  }
+  &--caution path {
+    @apply fill-caution;
+  }
+  &--warning path {
+    @apply fill-warning;
+  }
+  &--critical path {
+    @apply fill-critical;
+  }
+  &--interactive path {
+    @apply fill-emphasis;
+  }
+  &--info path {
+    @apply fill-info;
+  }
+  &--success path {
+    @apply fill-success;
+  }
+  &--primary path {
+    @apply fill-primary;
+  }
+  &--emphasis path {
+    @apply fill-emphasis;
+  }
+  &--magic path {
+    @apply fill-magic;
+  }
+  &--text-caution path {
+    @apply fill-font;
+  }
+  &--text-warning path {
+    @apply fill-warning-800;
+  }
+  &--text-critical path {
+    @apply fill-critical-800;
+  }
+  &--text-info path {
+    @apply fill-info-800;
+  }
+  &--text-success path {
+    @apply fill-success-800;
+  }
+  &--text-primary path {
+    fill: #4a4a4a;
+  }
+  &--text-magic path {
+    @apply fill-magic-800;
   }
 }

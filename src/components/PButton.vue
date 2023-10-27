@@ -3,6 +3,8 @@ import { ButtonAlign, ButtonSize, ButtonTone, ButtonVariant, Target } from '@/ty
 import {computed, useSlots} from 'vue'
 import PSpinner from '@/components/PSpinner.vue'
 import PIcon from "@/components/PIcon.vue";
+// @ts-ignore
+import { ChevronDownMinor } from '@/icons'
 
 type Props = {
     accessibilityLabel?: string
@@ -11,6 +13,7 @@ type Props = {
     ariaDescribedBy?: string
     ariaExpanded?: boolean
     disabled?: boolean
+    disclosure?: boolean
     external?: boolean
     fullWidth?: boolean
     loading?: boolean
@@ -33,6 +36,7 @@ const props = withDefaults(defineProps<Props>(), {
     ariaDescribedBy: undefined,
     ariaExpanded: undefined,
     disabled: false,
+    disclosure: false,
     external: false,
     fullWidth: false,
     loading: false,
@@ -92,8 +96,9 @@ const classes = computed(() => [
     >
         <PSpinner v-show="loading" accessibility-label="Loading" size="small" class="p-button__spinner" />
         <span class="p-button__content">
-            <PIcon v-if="icon" class="p-button__icon" :icon="icon" />
+            <PIcon v-if="icon" class="p-button__icon" :source="icon" />
             <slot />
+            <PIcon v-if="disclosure" class="p-button__icon" :source="ChevronDownMinor" />
         </span>
     </Component>
 </template>

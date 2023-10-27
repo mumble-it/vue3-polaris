@@ -245,7 +245,7 @@ const characterCount = computed<{ counter: string, ariaLabel: string }>(() => {
                         {{ characterCount.counter }}
                     </div>
                     <button v-if="clearButton" type="button" class="p-text-field__clear-button" @click="onClickClear">
-                        <PIcon :icon="CircleCancelMinor"/>
+                        <PIcon :source="CircleCancelMinor"/>
                     </button>
                     <div v-if="type === 'number'" class="p-text-field__number-actions" aria-hidden="true">
                         <div
@@ -254,7 +254,7 @@ const characterCount = computed<{ counter: string, ariaLabel: string }>(() => {
                             tabindex="-1"
                             @click="onClickButtonNumber('add')"
                         >
-                            <PIcon class="p-text-field__number-icon" :icon="CaretUpMinor"/>
+                            <PIcon class="p-text-field__number-icon" :source="CaretUpMinor"/>
                         </div>
                         <div
                             role="button"
@@ -262,7 +262,7 @@ const characterCount = computed<{ counter: string, ariaLabel: string }>(() => {
                             tabindex="-1"
                             @click="onClickButtonNumber('remove')"
                         >
-                            <PIcon class="p-text-field__number-icon" :icon="CaretDownMinor"/>
+                            <PIcon class="p-text-field__number-icon" :source="CaretDownMinor"/>
                         </div>
                     </div>
                     <div class="p-text-field__backdrop" />

@@ -80,11 +80,11 @@
 }
 
 .bg-surface-warning {
-  @apply bg-warning-200;
+  @apply bg-warning-100;
 }
 
 .bg-surface-critical {
-  @apply bg-critical-200;
+  @apply bg-critical-100;
 }
 
 .bg-surface-emphasis {
@@ -92,7 +92,7 @@
 }
 
 .bg-surface-info {
-  @apply bg-info-200;
+  @apply bg-info-100;
 }
 
 .bg-surface-inverse {
@@ -100,11 +100,11 @@
 }
 
 .bg-surface-success {
-  @apply bg-success-200;
+  @apply bg-success-100;
 }
 
 .bg-surface-caution {
-  @apply bg-caution-200;
+  @apply bg-caution-100;
 }
 
 .bg-surface-transparent {
@@ -137,6 +137,7 @@
 
 @import "typography";
 
+@import "action-list";
 @import "badge";
 @import "banner";
 @import "button";
@@ -145,5 +146,7 @@
 @import "inline-error";
 @import "spinner";
 @import "page";
+@import "popover";
+@import "popover-pane";
 @import "text";
 @import "text-field";

@@ -86,11 +86,11 @@
   }
 
   &--success {
-    @apply text-success;
+    @apply text-success-800;
   }
 
   &--critical {
-    @apply text-critical-600;
+    @apply text-critical-800;
   }
 
   &--caution {

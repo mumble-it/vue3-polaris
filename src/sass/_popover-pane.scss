@@ -1,0 +1,17 @@
+.p-popover-pane {
+    @apply max-w-full;
+    flex: 1 1 auto;
+
+    &--fixed {
+        @apply overflow-visible;
+        flex: 0 0 auto;
+    }
+
+    &--subdued {
+        @apply bg-surface-200;
+    }
+
+    &--sectioned {
+        @apply pb-1.5 pt-2 px-3;
+    }
+}
