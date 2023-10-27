@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { ActionListItem } from '@/types'
+import {ActionListItem} from '@/types'
 // @ts-ignore
-import { ChevronDownMinor, SearchMinor } from '@/icons'
+import {ChevronDownMinor, SearchMinor} from '@/icons'
 import PText from "@/components/PText.vue";
 import PTextField from "@/components/PTextField.vue";
 import {computed, ref} from "vue";
@@ -67,26 +67,40 @@ const itemsFiltered = computed(() => {
 </script>
 
 <template>
-<div class="p-action-list" @keyup.up="onKeyUp" @keydown.down="onKeyDown">
+    <div class="p-action-list" @keyup.up="onKeyUp" @keydown.down="onKeyDown">
 
-    <div v-if="allowFiltering && items.length > 7" class="p-action-list__search-wrapper">
-        <PTextField v-model:value="search" placeholder="Search">
-            <template #prefix>
-                <PIcon tone="subdued" :source="SearchMinor" />
-            </template>
-        </PTextField>
-    </div>
+        <div v-if="allowFiltering && items.length > 7" class="p-action-list__search-wrapper">
+            <PTextField v-model:value="search" placeholder="Search">
+                <template #prefix>
+                    <PIcon tone="subdued" :source="SearchMinor"/>
+                </template>
+            </PTextField>
+        </div>
 
-    <div class="p-action-list__list-wrapper">
-        <ul class="p-action-list__list" role="menu">
-            <li v-for="(item, index) in itemsFiltered" :key="item.content">
-                <div :data-index="index">
-                    <button type="button" class="p-action-list__item" :role="actionRole" @click="onActionAnyItem">
-                        <PText class="p-action-list__text">{{ item.content }}</PText>
-                    </button>
-                </div>
-            </li>
-        </ul>
+        <div class="p-action-list__list-wrapper">
+            <ul class="p-action-list__list" role="menu">
+                <li v-for="(item, index) in itemsFiltered" :key="item.content">
+                    <div :data-index="index">
+                        <button
+                            type="button"
+                            :class="['p-action-list__item', {
+                                'p-action-list__item--active': item.active,
+                                'p-action-list__item--disabled': item.disabled,
+                                'p-action-list__item--destructive': item.destructive,
+                                'p-action-list__item--truncate': item.truncate,
+                                'p-action-list__item--indented': item.variant === 'indented',
+                            }]"
+                            :role="item.role || actionRole"
+                            @click="onActionAnyItem"
+                        >
+                            <span v-if="item.icon" class="p-action-list__item-prefix">
+                                <PIcon v-if="item.icon" :source="item.icon" />
+                            </span>
+                            <PText class="p-action-list__text">{{ item.content }}</PText>
+                        </button>
+                    </div>
+                </li>
+            </ul>
+        </div>
     </div>
-</div>
 </template>

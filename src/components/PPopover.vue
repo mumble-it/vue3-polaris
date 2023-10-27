@@ -1,6 +1,6 @@
 <script setup lang="ts">
 // @ts-ignore
-import {ArrowLeftMinor, HorizontalDotsMinor} from "@/icons"
+import {ArrowLeftMinor, HorizontalDotsMinor, SearchMinor} from "@/icons"
 import {computed, onBeforeUnmount, onMounted, ref, watch} from "vue";
 import PPopoverPane from "@/components/PPopoverPane.vue";
 import PText from "@/components/PText.vue";
@@ -8,12 +8,16 @@ import PActionList from "@/components/PActionList.vue";
 
 type Props = {
     active?: boolean
+    autofocusTarget?: 'none' | 'first-node' | 'container'
     preferredAlignment?: 'left' | 'center' | 'right'
+    preventCloseOnChildOverlayClick?: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {
     active: false,
+    autofocusTarget: 'container',
     preferredAlignment: 'center',
+    preventCloseOnChildOverlayClick: false,
 })
 const emit = defineEmits<{
     (e: 'update:active', value: boolean): void
@@ -71,6 +75,7 @@ const onEscape = () => {
 
 const onClickOutside = (event: any) => {
     if (
+        !props.preventCloseOnChildOverlayClick &&
         !(
             triggerContainer.value == event.target ||
             triggerContainer.value?.contains(event.target) ||
@@ -90,9 +95,15 @@ onBeforeUnmount(() => {
 })
 
 watch(() => props.active, (isActive) => {
-    if(isActive) {
-        const btn = overlay.value.querySelector('button') as HTMLButtonElement
-        if(btn) btn.focus()
+    if (isActive) {
+        if (props.autofocusTarget === 'container') {
+            overlay.value.focus()
+        }
+
+        if (props.autofocusTarget === 'first-node') {
+            const elementToFocus = overlay.value.querySelector('button') as HTMLButtonElement || overlay.value.querySelector('div') as HTMLDivElement
+            if (elementToFocus) elementToFocus.focus()
+        }
     }
 })
 </script>
@@ -100,7 +111,7 @@ watch(() => props.active, (isActive) => {
 <template>
     <div :class="classes" @keyup.esc="onEscape">
         <div ref="triggerContainer" class="p-popover__trigger-container">
-            <slot />
+            <slot/>
         </div>
 
         <Teleport to="body">
@@ -108,12 +119,7 @@ watch(() => props.active, (isActive) => {
                 <div class="p-popover__popover">
                     <div class="p-popover__content-container">
                         <div class="p-popover__content">
-                            <PPopoverPane fixed subdued sectioned>
-                                <PText font-weight="medium"> Available sales channels </PText>
-                            </PPopoverPane>
-                            <PPopoverPane>
-                                <PActionList :items="[{ content: 'Ciao' }, { content: 'Delete' }]" />
-                            </PPopoverPane>
+                            <slot name="content"/>
                         </div>
                     </div>
                 </div>

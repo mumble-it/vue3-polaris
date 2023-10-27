@@ -20,6 +20,7 @@ copy the config of tailwind and install it + import:
 ## Components TODO
 
 - [ ] Layout
+- [x] ActionList
 - [x] Button
 - [ ] ButtonGroup
 - [ ] Tabs - SB
@@ -37,7 +38,7 @@ copy the config of tailwind and install it + import:
 - [ ] Skeleton - SB
 - [x] Spinner
 - [ ] Modal
-- [ ] Popover
+- [x] Popover
 
 ## Package.json
 

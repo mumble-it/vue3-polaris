@@ -13,7 +13,7 @@
   }
 
   &__item {
-    @apply flex relative items-center w-full p-1.5 rounded-lg text-left;
+    @apply flex relative items-center w-full p-1.5 rounded-lg text-left gap-x-1.5;
     min-height: 2rem;
     cursor: pointer;
     border-top: 0.0625rem solid transparent;
@@ -29,12 +29,55 @@
   }
 
   &__item:active {
-    background-color: #ebebeb !important;
+    background-color: #ebebeb;
+  }
+
+  &__item--active {
+    @apply font-semibold;
+    background-color: #ebebeb;
   }
 
   &__item:focus-visible {
     @apply bg-white;
     outline: 0.125rem solid #005bd3;
+  }
+
+  &__item--disabled {
+    @apply text-disabled cursor-default hover:bg-transparent active:bg-transparent;
+  }
+
+  &__item--destructive {
+    @apply text-critical-800;
+  }
+
+  &__item--destructive:hover {
+    @apply bg-surface-critical;
+  }
+
+  &__item--destructive:active {
+    @apply bg-critical-300;
+  }
+
+  &__item--indented {
+    @apply relative;
+    margin-left: calc(1.25rem + 0.125rem);
+    max-width: calc(100% - 1.25rem - 0.125rem);
+  }
+
+  &__item--indented:before {
+    content: '';
+    @apply absolute bottom-0 left-0 -top-3 -ml-1.5;
+    border-left: 0.0625rem solid #e3e3e3;
+  }
+
+  &__item--truncate p {
+    @apply overflow-hidden whitespace-nowrap text-ellipsis;
+  }
+
+  &__item-prefix {
+    @apply flex justify-center items-center h-5 w-5 rounded;
+    margin: calc(1.25rem*-0.5) 0 calc(1.25rem*-0.5) 0;
+    flex: 0 0 auto;
   }
 
   &__text {
