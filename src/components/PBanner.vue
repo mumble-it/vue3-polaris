@@ -110,13 +110,13 @@ const onDismiss = () => {
                     <div class="p-banner__header-stack">
                         <div v-if="!tone" class="p-banner__title">
                             <div class="p-banner__button-box">
-                                <PIcon v-if="!hideIcon" :icon="toneControlMap" />
+                                <PIcon v-if="!hideIcon" :source="toneControlMap" />
                             </div>
                             <slot />
                         </div>
 
                         <div v-else class="p-banner__title">
-                            <PIcon v-if="!hideIcon" :icon="toneControlMap" />
+                            <PIcon v-if="!hideIcon" :source="toneControlMap" />
                             <PText as="h2" variant="headingSm">{{ title }}</PText>
                         </div>
                         <PButton
