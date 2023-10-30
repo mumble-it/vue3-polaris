@@ -1,0 +1,15 @@
+.p-skeleton-body-text-container {
+    @apply w-full;
+}
+
+.p-skeleton-body-text {
+    @apply h-3 flex rounded-lg bg-surface-300;
+
+    &:last-child:not(:first-child) {
+        @apply w-4/5;
+    }
+
+    + .p-skeleton-body-text {
+        @apply mt-3;
+    }
+}
