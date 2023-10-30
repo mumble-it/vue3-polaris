@@ -43,7 +43,6 @@ const shouldShowFocus = ref(false)
 
 const classBanner = computed(() => [
     'p-banner',
-    'p-banner--within-page',
     {
         'p-banner--key-focused': shouldShowFocus.value,
     },
