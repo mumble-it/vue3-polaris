@@ -38,7 +38,7 @@ export const Default: Story = {
         setup() {
             return {args}
         },
-        template: '<PTextField v-bind="args" />'
+        template: '<PTextField v-bind="args" v-model:value="args.value" />'
     })
 };
 

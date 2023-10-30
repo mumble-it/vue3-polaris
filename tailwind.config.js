@@ -97,6 +97,7 @@ export default {
             variants: ['xs', 'sm', 'md', 'lg', 'xl'],
         },
         'sr-only',
+        'form-checkbox',
     ],
     plugins: [
         require('@tailwindcss/forms')({

@@ -1,0 +1,54 @@
+.p-checkbox {
+
+  &__label {
+    @apply relative items-start cursor-pointer inline-flex;
+  }
+
+  &--disabled &__label {
+    @apply cursor-default;
+  }
+
+  &--disabled &__text {
+    @apply text-disabled;
+  }
+
+  &--disabled &__input {
+    @apply border-transparent;
+    background: rgba(0, 0, 0, 0.08);
+  }
+
+  &--error &__input {
+    @apply bg-surface-critical border-critical-800;
+  }
+
+  &--error &__input:checked {
+    @apply bg-critical-800;
+  }
+
+  &__wrapper {
+    @apply flex items-center;
+  }
+
+  &__input {
+    @apply text-primary-600 border-gray-300 rounded mr-2;
+    width: 18px;
+    height: 18px;
+  }
+
+  .form-checkbox:focus, .form-radio:focus{
+    @apply outline-0;
+    box-shadow: none;
+  }
+
+  &__text {
+    @apply text-base;
+  }
+
+  &__descriptions {
+    @apply pl-7 text-base;
+  }
+
+  &__helper {
+    @apply mb-1;
+  }
+}

@@ -27,18 +27,20 @@ copy the config of tailwind and install it + import:
 - [ ] Banner - SB
 - [x] Text
 - [x] Badge - SB
-- [ ] Dropdown
 - [ ] Dropzone Media
-- [ ] Select
+- [x] Select
 - [x] Text Field
-- [ ] Checkbox
+- [x] Checkbox
 - [X] Icon
-- [ ] Color
 - [ ] Radio
-- [ ] Skeleton - SB
 - [x] Spinner
 - [ ] Modal
 - [x] Popover
+
+### Next
+- [ ] Skeleton
+- [ ] Color
+- [ ] Checkbox animation
 
 ## Package.json
 

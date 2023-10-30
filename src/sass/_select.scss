@@ -1,0 +1,86 @@
+.p-select {
+  @apply text-base;
+
+  &--disabled {
+    @apply text-disabled;
+  }
+
+  &--disabled &__backdrop {
+    @apply bg-surface-disabled border-none;
+  }
+
+  &--disabled path {
+    @apply fill-disabled;
+  }
+
+  &--required-indicator &__label:after {
+    content: '*';
+    @apply text-critical-800 ml-1;
+  }
+
+  &--error &__backdrop {
+    @apply bg-critical-100 border-critical-800;
+  }
+
+  &--error path {
+    @apply fill-critical-800;
+  }
+
+  &__error {
+    @apply mt-1;
+  }
+
+  &__label-wrapper {
+    @apply flex justify-between mb-1;
+  }
+
+  &__label {
+    @apply block break-words;
+    overflow-wrap: break-word;
+  }
+
+  &__input-wrapper {
+    @apply relative;
+  }
+
+  &__input {
+    @apply top-0 left-0 absolute z-30 w-full h-full m-0 opacity-0 appearance-none;
+    line-height: 1.25rem;
+  }
+
+  &__content {
+    @apply relative z-20 flex items-center w-full pt-1.5 pr-2 pb-1.5 pl-3;
+    line-height: 1.5rem;
+    min-height: 2rem;
+  }
+
+  &__selected-option {
+    @apply whitespace-nowrap overflow-hidden text-ellipsis;
+    flex: 1 1;
+  }
+
+  &__backdrop {
+    @apply absolute top-0 left-0 right-0 bottom-0 z-10 rounded-lg bg-surface-100;
+    border: 0.04125rem solid #8a8a8a;
+  }
+
+  &:not(.p-select--disabled):not(.p-select--error):hover &__backdrop {
+    @apply border-subdued;
+    background-color: #fafafa;
+  }
+
+  &:not(.p-select--disabled):not(.p-select--error) &__input:focus-visible ~ &__backdrop {
+    @apply border-primary-600 bg-surface-200;
+    border-width: 0.0625rem;
+    outline: 0.125rem solid #005bd3;
+    outline-offset: 0.0625rem;
+  }
+
+  &__inline-label {
+    @apply pr-1;
+  }
+
+  &__help-text {
+    @apply mt-1;
+  }
+}

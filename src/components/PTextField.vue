@@ -167,6 +167,14 @@ const characterCount = computed<{ counter: string, ariaLabel: string }>(() => {
         ariaLabel: `${stringLength} of ${props.maxLength} characters used`,
     }
 })
+
+const describedBy = computed(() => {
+    let items = []
+    if(props.helpText) items.push(`text-field-helper-${internalId.value}`)
+    if(props.error) items.push(`text-field-error-${internalId.value}`)
+
+    return items.join(' ')
+})
 </script>
 
 <template>
@@ -199,7 +207,7 @@ const characterCount = computed<{ counter: string, ariaLabel: string }>(() => {
                 <slot name="connectedLeft"/>
             </div>
             <div :class="{ 'p-text-field__item p-text-field__item--primary': hasConnected }">
-                <div class="p-text-field__input-container">
+                <div class="p-text-field__input-wrapper">
                     <div v-if="hasPrefix" :id="`text-field-prefix-${internalId}`" class="p-text-field__prefix">
                         <slot name="prefix"/>
                     </div>
@@ -224,9 +232,10 @@ const characterCount = computed<{ counter: string, ariaLabel: string }>(() => {
                         :required="required"
                         :role="role"
                         :rows="multiline"
-                        :aria-describedby="error ? `text-field-error-${internalId}`: helpText ? `text-field-help-text-${internalId}` : undefined"
+                        :aria-describedby="describedBy"
                         :aria-labelledby="label ? `text-field-label-${internalId}` : undefined"
                         :aria-multiline="multiline ? 'true' : undefined"
+                        :aria-invalid="!!error"
                         :style="styleInput"
                         @input="onInput"
                         @focus="onFocus"
