@@ -38,16 +38,6 @@ const hasContent = computed(() => props.tone && (!!slots.default || props.action
 const role = computed(() => (props.tone === 'warning' || props.tone === 'critical' ? 'alert' : 'status'))
 const ariaLive = computed(() => (props.stopAnnouncements ? 'off' : 'polite'))
 
-const banner = ref()
-const shouldShowFocus = ref(false)
-
-const classBanner = computed(() => [
-    'p-banner',
-    {
-        'p-banner--key-focused': shouldShowFocus.value,
-    },
-])
-
 const classBannerHeader = computed(() => [
     'p-banner__header',
     {
@@ -73,9 +63,31 @@ const toneControlMap = computed(() => {
     }
 })
 
-const onMouseUp = () => {
+const banner = ref()
+const shouldShowFocus = ref(false)
+
+const classBanner = computed(() => {
+    return [
+        'p-banner',
+        'p-banner--within-page',
+        {
+            'p-banner--key-focused': shouldShowFocus.value,
+        },
+    ]
+})
+
+const focus = () => {
     banner.value?.focus()
     shouldShowFocus.value = true
+}
+
+defineExpose({
+    focus,
+})
+
+const onMouseUp = () => {
+    banner.value?.blur()
+    shouldShowFocus.value = false
 }
 
 const onKeyUp = () => {

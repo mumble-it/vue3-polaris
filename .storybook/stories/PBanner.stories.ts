@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/vue3'
-
 import PBanner from '../../src/components/Pbanner.vue'
 import { PText } from '../../src'
+import { onMounted, ref } from 'vue'
 
 const meta = {
     title: 'Components/PBanner',
@@ -94,5 +94,24 @@ export const Critical: Story = {
         },
         template:
             '<PBanner v-bind="args"><PText>Before fulfilling this order or capturing payment, please review the Risk Analysis and determine if this order is fraudulent.</PText></PBanner>',
+    }),
+}
+
+export const WithFocus: Story = {
+    args: {
+        tone: 'critical',
+        title: 'High risk of fraud detected',
+    },
+    render: (args) => ({
+        components: { PBanner, PText },
+        setup() {
+            const banner = ref()
+            onMounted(() => {
+                banner.value?.focus()
+            })
+            return { args, banner }
+        },
+        template:
+            '<PBanner v-bind="args" ref="banner"><PText>Before fulfilling this order or capturing payment, please review the risk analysis and determine if this order is fraudulent.</PText></PBanner>',
     }),
 }

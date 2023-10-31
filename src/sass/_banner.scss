@@ -1,12 +1,12 @@
 .p-banner {
-    @apply bg-surface-50 relative flex rounded-xl;
+    @apply bg-surface-50 relative flex;
 
     &:focus {
-        @apply outline-none;
+        @apply outline-none outline-offset-0;
     }
 
     &--key-focused {
-        outline: 2px solid #005BD3;
+        outline: 2px solid #005BD3 !important;
     }
 
     &--within-page {
