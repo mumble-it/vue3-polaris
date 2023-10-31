@@ -70,12 +70,39 @@
         @apply flex justify-between items-center flex-nowrap gap-2;
     }
 
-    &__button-box {
-        @apply bg-info-300 rounded-lg;
+    &__icon-box {
+        @apply rounded-lg;
         padding-block-end: .25rem;
         padding-block-start: .25rem;
         padding-inline-end: .25rem;
         padding-inline-start: .25rem;
+
+        &--info {
+            @apply bg-info-300;
+        }
+
+        &--success {
+            @apply bg-success-400;
+            color: #F8FFFB;
+
+            svg path {
+                fill: #F8FFFB;
+            }
+        }
+
+        &--warning {
+            @apply bg-warning-300;
+            color: #002133;
+        }
+
+        &--critical {
+            @apply bg-critical-500;
+            color: #F8FFFB;
+
+            svg path {
+                fill: #F8FFFB;
+            }
+        }
     }
 
     &__body-stack {

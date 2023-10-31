@@ -21,7 +21,7 @@ const props = withDefaults(defineProps<Props>(), {
     title: undefined,
     icon: undefined,
     hideIcon: false,
-    tone: undefined,
+    tone: 'info',
     action: undefined,
     secondaryAction: undefined,
     dismissible: true,
@@ -33,7 +33,7 @@ const emit = defineEmits<{
 }>()
 
 const slots = useSlots()
-const hasContent = computed(() => props.tone && (!!slots.default || props.action || props.secondaryAction))
+const hasContent = computed(() => props.title && (!!slots.default || props.action || props.secondaryAction))
 
 const role = computed(() => (props.tone === 'warning' || props.tone === 'critical' ? 'alert' : 'status'))
 const ariaLive = computed(() => (props.stopAnnouncements ? 'off' : 'polite'))
@@ -41,10 +41,20 @@ const ariaLive = computed(() => (props.stopAnnouncements ? 'off' : 'polite'))
 const classBannerHeader = computed(() => [
     'p-banner__header',
     {
-        'p-banner__header--success': props.tone === 'success',
-        'p-banner__header--warning': props.tone === 'warning',
-        'p-banner__header--critical': props.tone === 'critical',
-        'p-banner__header--info': props.tone === 'info',
+        'p-banner__header--success': props.title && props.tone === 'success',
+        'p-banner__header--warning': props.title && props.tone === 'warning',
+        'p-banner__header--critical': props.title && props.tone === 'critical',
+        'p-banner__header--info': props.title && props.tone === 'info',
+    },
+])
+
+const classIconBox = computed(() => [
+    'p-banner__icon-box',
+    {
+        'p-banner__icon-box--success': props.tone === 'success',
+        'p-banner__icon-box--warning': props.tone === 'warning',
+        'p-banner__icon-box--critical': props.tone === 'critical',
+        'p-banner__icon-box--info': props.tone === 'info',
     },
 ])
 
@@ -119,8 +129,8 @@ const onDismiss = () => {
             <div class="p-banner__stack">
                 <div :class="classBannerHeader">
                     <div class="p-banner__header-stack">
-                        <div v-if="!tone" class="p-banner__title">
-                            <div class="p-banner__button-box">
+                        <div v-if="!title" class="p-banner__title">
+                            <div :class="classIconBox">
                                 <PIcon v-if="!hideIcon" :source="toneControlMap" />
                             </div>
                             <slot />
