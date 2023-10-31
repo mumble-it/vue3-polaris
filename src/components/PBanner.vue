@@ -15,6 +15,7 @@ type Props = {
     secondaryAction?: Action
     dismissible?: boolean
     stopAnnouncements?: boolean
+    withinContainer?: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -26,6 +27,7 @@ const props = withDefaults(defineProps<Props>(), {
     secondaryAction: undefined,
     dismissible: true,
     stopAnnouncements: false,
+    withinContainer: false,
 })
 
 const emit = defineEmits<{
@@ -45,6 +47,16 @@ const classBannerHeader = computed(() => [
         'p-banner__header--warning': props.title && props.tone === 'warning',
         'p-banner__header--critical': props.title && props.tone === 'critical',
         'p-banner__header--info': props.title && props.tone === 'info',
+    },
+])
+
+const classBannerHeaderWithinComponent = computed(() => [
+    'p-banner__header-within-component',
+    {
+        'p-banner__header-within-component--success': props.tone === 'success',
+        'p-banner__header-within-component--warning': props.tone === 'warning',
+        'p-banner__header-within-component--critical': props.tone === 'critical',
+        'p-banner__header-within-component--info': props.tone === 'info',
     },
 ])
 
@@ -79,8 +91,9 @@ const shouldShowFocus = ref(false)
 const classBanner = computed(() => {
     return [
         'p-banner',
-        'p-banner--within-page',
         {
+            'p-banner--within-page': !props.withinContainer,
+            'p-banner--within-content-container': props.withinContainer,
             'p-banner--key-focused': shouldShowFocus.value,
         },
     ]
@@ -127,7 +140,23 @@ const onDismiss = () => {
     >
         <div class="p-banner__box">
             <div class="p-banner__stack">
-                <div :class="classBannerHeader">
+                <div v-if="withinContainer && !title" :class="classBannerHeaderWithinComponent">
+                    <div class="p-banner__header-stack">
+                        <div class="p-banner__title-within-component">
+                            <PIcon v-if="!hideIcon" :source="toneControlMap" />
+                            <slot />
+                        </div>
+
+                        <PButton
+                            v-if="dismissible"
+                            :icon="CancelMinor"
+                            variant="tertiary"
+                            accessibility-label="Dismiss notification"
+                            @click="onDismiss"
+                        />
+                    </div>
+                </div>
+                <div v-else :class="classBannerHeader">
                     <div class="p-banner__header-stack">
                         <div v-if="!title" class="p-banner__title">
                             <div :class="classIconBox">

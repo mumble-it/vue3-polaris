@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/vue3'
 import PBanner from '../../src/components/Pbanner.vue'
-import { PText } from '../../src'
+import { PText, PCard } from '../../src'
 import { onMounted, ref } from 'vue'
 
 const meta = {
@@ -113,5 +113,20 @@ export const WithFocus: Story = {
         },
         template:
             '<PBanner v-bind="args" ref="banner"><PText>Before fulfilling this order or capturing payment, please review the risk analysis and determine if this order is fraudulent.</PText></PBanner>',
+    }),
+}
+
+export const InACard: Story = {
+    args: {
+        tone: 'warning',
+        withinContainer: true,
+    },
+    render: (args) => ({
+        components: { PBanner, PText, PCard },
+        setup() {
+            return { args }
+        },
+        template:
+            '<PCard><PBanner v-bind="args"><PText>Make sure you know how these changes affect your store.</PText></PBanner></PCard>',
     }),
 }

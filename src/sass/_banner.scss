@@ -14,6 +14,10 @@
         box-shadow: 0 0.1875rem 0.0625rem -0.0625rem rgba(26,26,26,.07);
     }
 
+    &--within-content-container {
+        @apply rounded-lg;
+    }
+
     &__box {
         @apply w-full box-border;
     }
@@ -55,6 +59,46 @@
 
             svg path {
                 fill: #F8FFFB;
+            }
+        }
+    }
+
+    &__header-within-component {
+        @apply w-full rounded-lg;
+        padding-block-end: .5rem;
+        padding-block-start: .5rem;
+        padding-inline-end: .5rem;
+        padding-inline-start: .5rem;
+
+        &--info {
+            @apply bg-info-100 text-info-800;
+
+            svg path {
+                @apply fill-info-800;
+            }
+        }
+
+        &--success {
+            @apply bg-success-100 text-success-800;
+
+            svg path {
+                @apply fill-success-800;
+            }
+        }
+
+        &--warning {
+            @apply bg-warning-100 text-warning-800;
+
+            svg path {
+                @apply fill-warning-800;
+            }
+        }
+
+        &--critical {
+            @apply bg-critical-100 text-critical-800;
+
+            svg path {
+                @apply fill-critical-800;
             }
         }
     }
@@ -120,6 +164,10 @@
     }
 
     &__title {
-        @apply flex flex-nowrap items-center justify-between gap-2;
+        @apply flex flex-nowrap items-center justify-between gap-1 lg:gap-2;
+    }
+
+    &__title-within-component {
+        @apply flex flex-nowrap justify-between items-start gap-1 lg:gap-2;
     }
 }
