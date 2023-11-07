@@ -1,11 +1,11 @@
-export type ActionListItem = {
-    accessibilityLabel?: string;
+import { Action } from "@/types"
+
+export interface ActionListItem extends Action {
     // TODO
     // helpText?: React.ReactNode;
     // prefix?: string;
     // suffix?: React.ReactNode;
     active?: boolean;
-    content?: string;
     disabled?: boolean;
     destructive?: boolean;
     icon?: any;

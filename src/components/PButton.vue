@@ -97,7 +97,9 @@ const classes = computed(() => [
         <PSpinner v-show="loading" accessibility-label="Loading" size="small" class="p-button__spinner" />
         <span class="p-button__content">
             <PIcon v-if="icon" class="p-button__icon" :source="icon" />
-            <slot />
+            <span v-if="hasValue">
+                <slot />
+            </span>
             <PIcon v-if="disclosure" class="p-button__icon" :source="ChevronDownMinor" />
         </span>
     </Component>

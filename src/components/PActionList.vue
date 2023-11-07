@@ -91,7 +91,7 @@ const itemsFiltered = computed(() => {
                                 'p-action-list__item--indented': item.variant === 'indented',
                             }]"
                             :role="item.role || actionRole"
-                            @click="onActionAnyItem"
+                            @click="() => item.onAction ? item.onAction() : onActionAnyItem()"
                         >
                             <span v-if="item.icon" class="p-action-list__item-prefix">
                                 <PIcon v-if="item.icon" :source="item.icon" />

@@ -147,10 +147,6 @@
 
   &--tertiary {
     @apply shadow-none bg-transparent border-transparent;
-
-    &.p-button--icon-only {
-      margin: calc(-1 * .25rem);
-    }
   }
 
   &--tertiary:hover {
@@ -237,25 +233,31 @@
     fill: rgba(0, 0, 0, .17);
   }
 
+  &--large.p-button--icon-only {
+    @apply pl-1.5 pr-1.5;
+  }
+
   &--icon-only {
-    @apply pl-1.5 pr-1.5 lg:p-1;
+    @apply pl-1 pr-1;
   }
 
   &--icon-only &__icon {
-    @apply ml-0;
+    @apply mx-0;
   }
 
   &__icon {
-    margin-left: calc((0.25rem) * -1);
-    margin-top: calc(0.125rem*-1);
-    margin-bottom: calc(0.125rem*-1);
+    @apply -m-0.5;
+    margin-left: calc((0.25rem)*-1);
+    //margin-left: calc((0.25rem) * -1);
+    //margin-top: calc(0.125rem*-1);
+    //margin-bottom: calc(0.125rem*-1);
   }
 
   &__icon + *:not(&__icon) {
-    @apply ml-0.5;
+    @apply ml-1;
   }
 
-  &__icon:last-child {
-    @apply -mr-1.5 ml-0.5;
-  }
+  //&__icon:last-child {
+  //  @apply -mr-1.5 ml-0.5;
+  //}
 }

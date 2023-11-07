@@ -25,6 +25,7 @@ export interface Action {
     external?: boolean
     /** Where to display the url */
     target?: Target
+    disabled?: boolean
     /** Callback when an action takes place */
     onAction?(): void
     /** Callback when mouse enter */
