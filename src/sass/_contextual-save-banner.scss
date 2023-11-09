@@ -1,0 +1,18 @@
+.p-contextual-save-banner {
+  @apply bg-primary-600 px-8 text-white fixed bottom-0 left-0 w-full z-40;
+
+  &__contents {
+    @apply flex items-center justify-between mx-auto;
+    min-height: 56px;
+    max-width: 62.375rem;
+  }
+
+  .p-icon path {
+    @apply fill-white;
+  }
+
+  &__message,
+  &__actions {
+    @apply flex items-center gap-2;
+  }
+}

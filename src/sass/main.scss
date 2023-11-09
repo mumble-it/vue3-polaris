@@ -134,6 +134,17 @@
   --p-space-3200: 128px;
 }
 
+.slide-in-enter-active, .slide-in-leave-active {
+  -webkit-transition: all .2s ease-out;
+  transition: all .2s ease-out;
+  transition-delay: calc( 0.1s * var(--i));
+}
+.slide-in-enter-from, .slide-in-leave-to {
+  -webkit-transform: translateY(100%);
+  transform: translateY(100%);
+  opacity: 0;
+}
+
 
 @import "typography";
 
@@ -143,6 +154,7 @@
 @import "button";
 @import "card";
 @import "checkbox";
+@import "contextual-save-banner";
 @import "icon";
 @import "inline-error";
 @import "select";

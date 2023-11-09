@@ -19,7 +19,7 @@ copy the config of tailwind and install it + import:
 
 ## Components TODO
 
-- [ ] Layout
+- [x] Layout
 - [x] ActionList
 - [x] Button
 - [ ] ButtonGroup
