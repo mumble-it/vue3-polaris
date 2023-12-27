@@ -1,10 +1,7 @@
 <script setup lang="ts">
 // @ts-ignore
-import {ArrowLeftMinor, HorizontalDotsMinor, SearchMinor} from "@/icons"
-import {computed, onBeforeUnmount, onMounted, ref, watch} from "vue";
-import PPopoverPane from "@/components/PPopoverPane.vue";
-import PText from "@/components/PText.vue";
-import PActionList from "@/components/PActionList.vue";
+import { ArrowLeftMinor, HorizontalDotsMinor, SearchMinor } from '@/icons'
+import { computed, onBeforeUnmount, onMounted, ref, watch } from 'vue'
 
 type Props = {
     active?: boolean
@@ -24,9 +21,12 @@ const emit = defineEmits<{
 }>()
 
 const classes = computed(() => ['p-popover'])
-const overlayClasses = computed(() => ['p-popover__overlay', {
-    'p-popover__overlay--open': props.active
-}])
+const overlayClasses = computed(() => [
+    'p-popover__overlay',
+    {
+        'p-popover__overlay--open': props.active,
+    },
+])
 
 const triggerContainer = ref()
 const overlay = ref()
@@ -49,23 +49,23 @@ const coordinates = computed(() => {
         if (props.preferredAlignment === 'left') {
             left = Math.max(0, left - OFFSET)
 
-            if ((left + overlay.value.clientWidth) > window.innerWidth) {
-                left -= ((left + overlay.value.clientWidth) - window.innerWidth) + OFFSET
+            if (left + overlay.value.clientWidth > window.innerWidth) {
+                left -= left + overlay.value.clientWidth - window.innerWidth + OFFSET
             }
         }
 
         if (props.preferredAlignment === 'right') {
             left = Math.max(0, left - (overlay.value.clientWidth - trigger.clientWidth) + 8)
 
-            if ((left + overlay.value.clientWidth) > window.innerWidth) {
-                left -= ((left + overlay.value.clientWidth) - window.innerWidth) + OFFSET
+            if (left + overlay.value.clientWidth > window.innerWidth) {
+                left -= left + overlay.value.clientWidth - window.innerWidth + OFFSET
             }
         }
 
         top = top + triggerContainer.value.clientHeight
     }
 
-    return {top, left}
+    return { top, left }
 })
 const overlayStyle = computed(() => `top: ${coordinates.value.top}px; left: ${coordinates.value.left}px;`)
 
@@ -94,24 +94,29 @@ onBeforeUnmount(() => {
     document.body.removeEventListener('click', onClickOutside)
 })
 
-watch(() => props.active, (isActive) => {
-    if (isActive) {
-        if (props.autofocusTarget === 'container') {
-            overlay.value.focus()
-        }
+watch(
+    () => props.active,
+    (isActive) => {
+        if (isActive) {
+            if (props.autofocusTarget === 'container') {
+                overlay.value.focus()
+            }
 
-        if (props.autofocusTarget === 'first-node') {
-            const elementToFocus = overlay.value.querySelector('button') as HTMLButtonElement || overlay.value.querySelector('div') as HTMLDivElement
-            if (elementToFocus) elementToFocus.focus()
+            if (props.autofocusTarget === 'first-node') {
+                const elementToFocus =
+                    (overlay.value.querySelector('button') as HTMLButtonElement) ||
+                    (overlay.value.querySelector('div') as HTMLDivElement)
+                if (elementToFocus) elementToFocus.focus()
+            }
         }
     }
-})
+)
 </script>
 
 <template>
     <div :class="classes" @keyup.esc="onEscape">
         <div ref="triggerContainer" class="p-popover__trigger-container">
-            <slot/>
+            <slot />
         </div>
 
         <Teleport to="body">
@@ -119,7 +124,7 @@ watch(() => props.active, (isActive) => {
                 <div class="p-popover__popover">
                     <div class="p-popover__content-container">
                         <div class="p-popover__content">
-                            <slot name="content"/>
+                            <slot name="content" />
                         </div>
                     </div>
                 </div>

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { BannerTone, BannerDisableableAction, BannerLoadableAction, Action } from '@/types'
 import { computed, ref, useSlots } from 'vue'
-import { RiskMinor, TickMinor, DiamondAlertMinor, InfoMinor, CancelMinor } from '../icons/index.js'
+import { RiskMinor, TickMinor, DiamondAlertMinor, InfoMinor, CancelMinor } from '@/icons'
 import PIcon from '@/components/PIcon.vue'
 import PText from '@/components/PText.vue'
 import PButton from '@/components/PButton.vue'

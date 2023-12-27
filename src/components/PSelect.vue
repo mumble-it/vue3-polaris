@@ -1,15 +1,15 @@
 <script setup lang="ts">
-import {computed, ref} from "vue";
-import { uid } from "@/utils";
-import PIcon from "@/components/PIcon.vue";
+import { computed, ref } from 'vue'
+import { uid } from '@/utils'
+import PIcon from '@/components/PIcon.vue'
 // @ts-ignore
 import { SelectMinor } from '@/icons'
-import {Action} from "@/types";
-import PText from "@/components/PText.vue";
-import PButton from "@/components/PButton.vue";
-import PInlineError from "@/components/PInlineError.vue";
+import { Action } from '@/types'
+import PText from '@/components/PText.vue'
+import PButton from '@/components/PButton.vue'
+import PInlineError from '@/components/PInlineError.vue'
 
-type SelectOption = { label: string, value: string | number }
+type SelectOption = { label: string; value: string | number }
 
 type Props = {
     action?: Action
@@ -24,7 +24,7 @@ type Props = {
     options: SelectOption[]
     placeholder?: string
     requiredIndicator?: boolean
-    value?: string | number,
+    value?: string | number
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -48,11 +48,14 @@ const emit = defineEmits<{
 
 const internalId = ref(props.id || uid())
 
-const classes = computed(() => ['p-select', {
-    'p-select--disabled': props.disabled,
-    'p-select--error': props.error,
-    'p-select--required-indicator': props.requiredIndicator,
-}])
+const classes = computed(() => [
+    'p-select',
+    {
+        'p-select--disabled': props.disabled,
+        'p-select--error': props.error,
+        'p-select--required-indicator': props.requiredIndicator,
+    },
+])
 
 const describedBy = computed(() => {
     let items = []
@@ -62,13 +65,12 @@ const describedBy = computed(() => {
     return items.join(' ')
 })
 
-const onChange = (e: InputSelectEvent) => {
-    const value = e.target.value
+const onChange = (e: Event) => {
+    const value = (e.target as HTMLSelectElement).value
     emit('update:value', value)
 }
 
 const selectedOptionLabel = computed(() => {
-
     return props.value ? props.options.find((opt) => opt.value === props.value)?.label : props.placeholder
 })
 </script>
@@ -110,7 +112,7 @@ const selectedOptionLabel = computed(() => {
                 :value="value"
                 @change="onChange"
             >
-                <option v-if="placeholder" value="" disabled> {{ placeholder }} </option>
+                <option v-if="placeholder" value="" disabled>{{ placeholder }}</option>
                 <option v-for="option in options" :key="option.value" :value="option.value">
                     {{ option.label }}
                 </option>

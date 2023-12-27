@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import {ActionListItem} from '@/types'
+import { ActionListItem } from '@/types'
 // @ts-ignore
-import {ChevronDownMinor, SearchMinor} from '@/icons'
-import PText from "@/components/PText.vue";
-import PTextField from "@/components/PTextField.vue";
-import {computed, ref} from "vue";
-import PIcon from "@/components/PIcon.vue";
+import { ChevronDownMinor, SearchMinor } from '@/icons'
+import PText from '@/components/PText.vue'
+import PTextField from '@/components/PTextField.vue'
+import { computed, ref } from 'vue'
+import PIcon from '@/components/PIcon.vue'
 
 type Props = {
     actionRole?: 'menuitem' | string
@@ -57,6 +57,14 @@ const onKeyDown = (e: KeyboardEvent) => {
     }
 }
 
+const onClickAction = (item: ActionListItem) => {
+    if (item.onAction) {
+        item.onAction()
+    } else if (props.onActionAnyItem) {
+        props.onActionAnyItem()
+    }
+}
+
 const search = ref('')
 const itemsFiltered = computed(() => {
     return props.items.filter((item) => {
@@ -68,11 +76,10 @@ const itemsFiltered = computed(() => {
 
 <template>
     <div class="p-action-list" @keyup.up="onKeyUp" @keydown.down="onKeyDown">
-
         <div v-if="allowFiltering && items.length > 7" class="p-action-list__search-wrapper">
             <PTextField v-model:value="search" placeholder="Search">
                 <template #prefix>
-                    <PIcon tone="subdued" :source="SearchMinor"/>
+                    <PIcon tone="subdued" :source="SearchMinor" />
                 </template>
             </PTextField>
         </div>
@@ -83,15 +90,18 @@ const itemsFiltered = computed(() => {
                     <div :data-index="index">
                         <button
                             type="button"
-                            :class="['p-action-list__item', {
-                                'p-action-list__item--active': item.active,
-                                'p-action-list__item--disabled': item.disabled,
-                                'p-action-list__item--destructive': item.destructive,
-                                'p-action-list__item--truncate': item.truncate,
-                                'p-action-list__item--indented': item.variant === 'indented',
-                            }]"
+                            :class="[
+                                'p-action-list__item',
+                                {
+                                    'p-action-list__item--active': item.active,
+                                    'p-action-list__item--disabled': item.disabled,
+                                    'p-action-list__item--destructive': item.destructive,
+                                    'p-action-list__item--truncate': item.truncate,
+                                    'p-action-list__item--indented': item.variant === 'indented',
+                                },
+                            ]"
                             :role="item.role || actionRole"
-                            @click="() => item.onAction ? item.onAction() : onActionAnyItem()"
+                            @click="onClickAction(item)"
                         >
                             <span v-if="item.icon" class="p-action-list__item-prefix">
                                 <PIcon v-if="item.icon" :source="item.icon" />

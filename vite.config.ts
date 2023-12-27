@@ -1,24 +1,24 @@
-import {defineConfig} from "vite";
-import vue from "@vitejs/plugin-vue";
-import path from "path";
-import {viteStaticCopy} from 'vite-plugin-static-copy'
+import { defineConfig } from 'vite'
+import vue from '@vitejs/plugin-vue'
+import path from 'path'
+import { viteStaticCopy } from 'vite-plugin-static-copy'
 import svgLoader from 'vite-svg-loader'
 
 const config = {
     components: {
-        entry: path.resolve(__dirname, "src/index.ts"),
-        name: "Vue3Polaris",
+        entry: path.resolve(__dirname, 'src/index.ts'),
+        name: 'Vue3Polaris',
         fileName: (format: string) => `vue3-polaris-test.${format}.js`,
     },
     icons: {
-        entry: path.resolve(__dirname, "src/icons/index.js"),
-        name: "Icons",
+        entry: path.resolve(__dirname, 'src/icons/index.ts'),
+        name: 'Icons',
         fileName: (format: string) => `icons.${format}.js`,
     },
 }
 
 // @ts-ignore
-const currentConfig = config[process.env.LIB_NAME];
+const currentConfig = config[process.env.LIB_NAME]
 
 export default defineConfig({
     plugins: [
@@ -39,24 +39,24 @@ export default defineConfig({
     ],
     resolve: {
         alias: {
-            "@/": new URL("./src/", import.meta.url).pathname,
+            '@/': new URL('./src/', import.meta.url).pathname,
         },
     },
 
     build: {
         cssCodeSplit: true,
-        target: "esnext",
+        target: 'esnext',
         emptyOutDir: false,
         lib: {
-            ...currentConfig
+            ...currentConfig,
         },
         rollupOptions: {
-            external: ["vue"],
+            external: ['vue'],
             output: {
                 globals: {
-                    vue: "Vue",
+                    vue: 'Vue',
                 },
             },
         },
     },
-});
+})
