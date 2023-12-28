@@ -1,0 +1,60 @@
+.p-button-group {
+    @apply flex flex-wrap items-center;
+    margin-top: calc(0.5rem * -1);
+    margin-left: calc(0.5rem * -1);
+
+    &--full-width {
+        @apply flex-auto;
+    }
+
+    &--extra-tight {
+        @apply gap-x-1;
+        margin-top: calc(0.25rem * -1);
+    }
+
+    &--tight {
+        @apply gap-x-2;
+        margin-top: calc(0.5rem * -1);
+    }
+
+    &--loose {
+        @apply gap-x-3;
+        margin-top: calc(0.75rem * -1);
+    }
+
+    &--no-wrap {
+        @apply flex-nowrap;
+    }
+
+    &--full-width {
+        .p-button {
+            @apply w-full;
+        }
+    }
+
+    &--connected-top {
+        & > .p-button:first-child {
+            @apply rounded-tl-none;
+        }
+
+        & > .p-button:last-child {
+            @apply rounded-tr-none;
+        }
+    }
+
+    &--segmented {
+        @apply flex flex-nowrap gap-x-0 mt-0 mb-0;
+
+        & > .p-button:first-child {
+            @apply mt-0 ml-0 rounded-r-none relative;
+        }
+
+        & > .p-button:last-child {
+            @apply mt-0 ml-0 rounded-l-none relative;
+        }
+
+        .p-button:not(:first-child):not(:last-child) {
+            @apply mt-0 ml-0 rounded-none relative;
+        }
+    }
+}
