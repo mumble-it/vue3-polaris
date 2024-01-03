@@ -16,8 +16,8 @@
     "lint": "eslint --ext .js,.vue,.ts --ignore-path .gitignore --fix src"
   },
   "author": {
-    "name": "Mumble SRL",
-    "email": "developers@mumble.it",
+    "name": "Mumble",
+    "email": "info@mumble.it",
     "url": "https://mumble.it"
   },
   "license": "ISC",
