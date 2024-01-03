@@ -1,0 +1,47 @@
+.p-radio-button {
+    &__label {
+        @apply inline-flex items-center cursor-pointer;
+    }
+
+    &__input {
+        @apply w-2.5 h-2.5 m-0 p-0 absolute top-0 overflow-hidden border-0 whitespace-nowrap;
+        clip-path: inset(50%);
+        border-style: initial;
+        border-color: initial;
+        border-image: initial;
+    }
+
+    &__backdrop {
+        @apply w-full h-full block relative top-0 left-0 rounded-full bg-surface-100;
+        border: 1px solid #8a8a8a;
+        transition: border-color 100ms cubic-bezier(0.19,0.91,0.38,1);
+    }
+
+    &__backdrop::before {
+        @apply w-2 h-2 absolute top-1/2 left-1/2 bg-white rounded-full opacity-0;
+        content: "";
+        transform: translate(-50%,-50%) scale(.1);
+        transform-origin: 50% 50%;
+        transition: opacity 100ms cubic-bezier(0.19,0.91,0.38,1),transform 100ms cubic-bezier(0.19,0.91,0.38,1);
+    }
+
+    &__backdrop::after {
+        @apply absolute z-[1] block pointer-events-none rounded-full;
+        content: "";
+        top: calc(0.125rem * -1 + -0.0625rem);
+        right: calc(0.125rem * -1 + -0.0625rem);
+        bottom: calc(0.125rem * -1 + -0.0625rem);
+        left: calc(0.125rem * -1 + -0.0625rem);
+        box-shadow: 0 0 0 calc(0.125rem * -1 + -0.0625rem) #005bd3;
+    }
+
+    &__input:checked:not(:disabled) + .p-radio-button__backdrop {
+        @apply bg-primary border-primary;
+    }
+
+    &__input:checked + .p-radio-button__backdrop::before {
+        @apply bg-white opacity-100;
+        transition: opacity 150ms cubic-bezier(0.19,0.91,0.38,1),transform 150ms cubic-bezier(0.19,0.91,0.38,1);
+        transform: translate(-50%,-50%) scale(1);
+    }
+}
