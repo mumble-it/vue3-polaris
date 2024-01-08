@@ -1,0 +1,61 @@
+.p-tabs {
+    &__box {
+        padding-block-end: .5rem;
+        padding-block-start: .5rem;
+        padding-inline-end: .5rem;
+        padding-inline-start: .5rem;
+    }
+
+    &__tabs-container {
+        @apply flex md:flex-wrap items-center md:items-stretch gap-1 m-0 p-0 md:px-1 list-none;
+
+        &--fitted {
+            @apply flex-nowrap;
+
+            & > .p-tabs__button-container {
+                @apply w-full;
+            }
+        }
+    }
+
+    &__button-container {
+        @apply flex m-0 p-0;
+    }
+
+    &__button {
+        @apply min-w-full w-full h-8 inline-flex justify-center items-center gap-x-2 py-1.5 px-3 mt-px rounded-lg border-0 bg-transparent text-[#4A4A4A] relative outline-none text-center md:leading-4 md:text-sm whitespace-nowrap cursor-pointer;
+        margin-bottom: calc(0.0625rem * -1);
+
+        &[aria-disabled="true"] {
+            @apply text-disabled cursor-default;
+        }
+
+        &--active {
+            @apply bg-[#00000014] rounded-lg text-primary;
+        }
+
+        &--active[aria-disabled="true"] {
+            @apply bg-[#0000000d] rounded-lg text-disabled;
+        }
+
+        &:not([aria-disabled="true"]):hover {
+            @apply bg-[#00000014] text-[#4A4A4A];
+        }
+
+/*        &:not([aria-disabled="true"]):focus {
+            @apply bg-surface-100 text-[#4A4A4A];
+        }*/
+    }
+
+    &__panel {
+        @apply block px-4 py-2;
+
+        &--hidden {
+            @apply hidden;
+        }
+    }
+
+    &__panel-header {
+        @apply pb-2;
+    }
+}

@@ -7,9 +7,6 @@ const meta = {
     title: 'Components/PBanner',
     component: PBanner,
     tags: ['autodocs'],
-    args: {
-        onActionAnyItem: () => {},
-    },
     argTypes: {
         tone: { control: 'select', options: ['info', 'success', 'warning', 'critical'] },
         title: { control: 'text' },
