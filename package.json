@@ -1,5 +1,5 @@
 {
-  "name": "vue3-polaris",
+  "name": "@mumble/vue3-polaris",
   "description": "Vue 3 Polaris is a Vue 3 UI library that provides a set of components and styles inspired by the Shopify Polaris design system.",
   "version": "1.0.0",
   "type": "module",
@@ -88,5 +88,13 @@
     "vite-plugin-static-copy": "^0.17.0",
     "vite-svg-loader": "^4.0.0",
     "vue-tsc": "^1.8.5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mumble-it/vue3-polaris.git"
+  },
+  "homepage": "https://github.com/mumble-it/vue3-polaris#readme",
+  "bugs": {
+    "url": "https://github.com/mumble-it/vue3-polaris/issues"
   }
 }
