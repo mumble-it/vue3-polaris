@@ -8,7 +8,7 @@ Vue 3 Polaris is a Vue 3 UI library that provides a set of components and styles
 - **Flexibility**: Adapt UI elements to your needs.
 - **Tree-Shakeable**: Optimize bundle size for better performance.
 - Updated to the last **New Polaris UI**.
-- Explore and learn with the provided **[Storybook]()** documentation.
+- Explore and learn with the provided **[Storybook Demo]()** documentation.
 
 ## Installation
 
@@ -24,19 +24,28 @@ yarn add vue3-polaris
 
 Import and register the components you need in your Vue application:
 
+Individual components:
 ```javascript
 import Vue from 'vue';
-import VuePolarisUI from 'vue-polaris-ui';
+import { PButton } from 'vue3-polaris';
 
-Vue.use(VuePolarisUI);
+Vue.component('PButton', PButton);
 ```
 
-Now, you can start using the Vue Polaris UI components in your Vue templates:
+All components, although is not recommended. This will import ALL components and UI Elements, and will hurt performance:
+```javascript
+import Vue from 'vue';
+import Vue3Polaris from 'vue3-polaris';
+
+Vue.use(Vue3Polaris);
+```
+
+Now, you can start using the Vue 3 Polaris components in your Vue templates:
 
 ```html
 <template>
   <div>
-    <PolarisButton>Click me</PolarisButton>
+    <PButton>Click me</PButton>
   </div>
 </template>
 ```

@@ -1,3 +1,52 @@
+import { App } from 'vue'
+import PBadge from './components/PBadge/PBadge.vue'
+import PTabs from "@/components/PTabs/PTabs.vue";
+import PActionList from "@/components/PActionList.vue";
+import PBanner from "@/components/PBanner.vue";
+import PButton from "@/components/PButton.vue";
+import PButtonGroup from "@/components/PButtonGroup.vue";
+import PCard from "@/components/PCard.vue";
+import PCheckbox from "@/components/PCheckbox.vue";
+import PContextualSaveBanner from "@/components/PContextualSaveBanner.vue";
+import PIcon from "@/components/PIcon.vue";
+import PInlineError from "@/components/PInlineError.vue";
+import PPage from "@/components/PPage.vue";
+import PPopover from "@/components/PPopover.vue";
+import PPopoverPane from "@/components/PPopoverPane.vue";
+import PRadioButton from "@/components/PRadioButton.vue";
+import PSelect from "@/components/PSelect.vue";
+import PSkeletonBodyText from "@/components/PSkeletonBodyText.vue";
+import PSpinner from "@/components/PSpinner.vue";
+import PText from "@/components/PText.vue";
+import PTextField from "@/components/PTextField.vue";
+
+export const VuePolarisUI = {
+    install(app: App): void {
+        app.component('PBadge', PBadge)
+        app.component('PTabs', PTabs)
+        app.component('PActionList', PActionList)
+        app.component('PBanner', PBanner)
+        app.component('PButton', PButton)
+        app.component('PButtonGroup', PButtonGroup)
+        app.component('PCard', PCard)
+        app.component('PCheckbox', PCheckbox)
+        app.component('PContextualSaveBanner', PContextualSaveBanner)
+        app.component('PIcon', PIcon)
+        app.component('PInlineError', PInlineError)
+        app.component('PPage', PPage)
+        app.component('PPopover', PPopover)
+        app.component('PPopoverPane', PPopoverPane)
+        app.component('PRadioButton', PRadioButton)
+        app.component('PSelect', PSelect)
+        app.component('PSkeletonBodyText', PSkeletonBodyText)
+        app.component('PSpinner', PSpinner)
+        app.component('PText', PText)
+        app.component('PTextField', PTextField)
+    },
+}
+
+export default VuePolarisUI
+
 export { default as PBadge } from './components/PBadge/PBadge.vue'
 export { default as PTabs } from './components/PTabs/PTabs.vue'
 export { default as PActionList } from './components/PActionList.vue'

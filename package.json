@@ -1,6 +1,6 @@
 {
-  "name": "vue3-polaris-test",
-  "version": "0.0.9",
+  "name": "vue3-polaris",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -63,6 +63,7 @@
     "@vitejs/plugin-vue": "^4.2.3",
     "@vue/eslint-config-typescript": "^12.0.0",
     "autoprefixer": "^10.4.16",
+    "chromatic": "^10.6.1",
     "cssnano": "^6.0.1",
     "eslint": "^8.52.0",
     "eslint-config-prettier": "^9.0.0",
