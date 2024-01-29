@@ -15,9 +15,9 @@ Vue 3 Polaris is a Vue 3 UI library that provides a set of components and styles
 To get started with Vue Polaris UI, you can install it via npm or yarn:
 
 ```bash
-npm install vue3-polaris
+npm install @mumble/vue3-polaris
 # or
-yarn add vue3-polaris
+yarn add @mumble/vue3-polaris
 ```
 
 ## Usage
