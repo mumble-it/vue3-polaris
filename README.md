@@ -7,7 +7,7 @@ Vue 3 Polaris is a Vue 3 UI library that provides a set of components and styles
 - **Flexibility**: Adapt UI elements to your needs.
 - **Tree-Shakeable**: Optimize bundle size for better performance.
 - Updated to the last **New Polaris UI**.
-- Explore and learn with the provided **[Storybook Demo]()** documentation.
+- Explore and learn with the provided **[Storybook Demo](https://main--65b77e7089c2e7e8d6265ba2.chromatic.com/)** documentation.
 
 ## Installation
 
@@ -51,7 +51,7 @@ Now, you can start using the Vue 3 Polaris components in your Vue templates:
 
 ## Documentation
 
-For detailed documentation, examples, and customization options, please visit our [Storybook](https://github.com/your-repo/vue-polaris-ui).
+For detailed documentation, examples, and customization options, please visit our [Storybook](https://main--65b77e7089c2e7e8d6265ba2.chromatic.com/).
 
 ## Contributing
 We welcome contributions from the community. If you find any issues or have suggestions for improvements, please open an issue or submit a pull request on our GitHub repository.

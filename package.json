@@ -14,7 +14,8 @@
     "test": "exit 0",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "lint": "eslint --ext .js,.vue,.ts --ignore-path .gitignore --fix src"
+    "lint": "eslint --ext .js,.vue,.ts --ignore-path .gitignore --fix src",
+    "chromatic": "npx chromatic --project-token=chpt_1665cc75fc985a4"
   },
   "author": {
     "name": "Mumble",
@@ -91,7 +92,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/mumble-it/vue3-polaris.git"
+    "url": "git+https://github.com/mumble-it/vue3-polaris.git"
   },
   "homepage": "https://github.com/mumble-it/vue3-polaris#readme",
   "bugs": {
