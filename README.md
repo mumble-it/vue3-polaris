@@ -4,7 +4,6 @@ Vue 3 Polaris is a Vue 3 UI library that provides a set of components and styles
 
 ## Features
 
-- Easy customization with a smaller build size with **Tailwind CSS**.
 - **Flexibility**: Adapt UI elements to your needs.
 - **Tree-Shakeable**: Optimize bundle size for better performance.
 - Updated to the last **New Polaris UI**.
@@ -16,8 +15,6 @@ To get started with Vue Polaris UI, you can install it via npm or yarn:
 
 ```bash
 npm install @mumble/vue3-polaris
-# or
-yarn add @mumble/vue3-polaris
 ```
 
 ## Usage
@@ -28,6 +25,7 @@ Individual components:
 ```javascript
 import Vue from 'vue';
 import { PButton } from 'vue3-polaris';
+import '@mumble/vue3-polaris/dist/css/main.css'
 
 Vue.component('PButton', PButton);
 ```
@@ -36,6 +34,7 @@ All components, although is not recommended. This will import ALL components and
 ```javascript
 import Vue from 'vue';
 import Vue3Polaris from 'vue3-polaris';
+import '@mumble/vue3-polaris/dist/css/main.css'
 
 Vue.use(Vue3Polaris);
 ```
