@@ -89,7 +89,6 @@ watch(
     (value) => {
         if (props.type === 'number' && value) {
             const number = value as number
-            console.log(number)
 
             if (props.max) {
                 if (number > props.max) {
